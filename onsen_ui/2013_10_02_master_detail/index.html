@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>My App</title>  
+  <link rel="stylesheet" href="styles/app.css"/>
+  <link rel="stylesheet" href="lib/onsen/css/onsen.css">  
+  <link rel="stylesheet" href="lib/onsen/css/topcoat-mobile-light.css">  
+
+  <script src="lib/onsen/onsen.js"></script>    
+  <script>
+    angular.module('myApp', ['onsen.directives']);   
+  </script>
+
+  <script src="data.js"></script>
+  <script src="page1.js"></script>
+  <script src="page2.js"></script>
+</head>
+
+<body>    
+  
+  <ons-screen page="home_navigator.html"></ons-screen>
+ 
+</body>
+  
+</html>
