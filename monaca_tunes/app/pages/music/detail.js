@@ -12,6 +12,13 @@ Play Music
             $scope.volume = 50;
             $scope.player = Player;
             $scope.music = PlaylistManager.selectedMusic;
+
+            var favoriteList = PlaylistManager.getPlaylist('Favorites');
+            favoriteList.exist($scope.music).done(function(favorited){
+                $scope.$apply(function(){
+                    $scope.isFavorited = favorited;
+                });
+            });
             
             $scope.ons.tabbar.setTabbarVisibility(false);
 
@@ -20,8 +27,17 @@ Play Music
                 $scope.ons.tabbar.setTabbarVisibility(true);
             });
 
-            $scope.favorite = function() {
-                PlaylistManager.selectedPlaylist.favoriteCurrentTrack();
+            $scope.toggleFavorite = function() {
+                if($scope.isFavorited){
+                    PlaylistManager.selectedPlaylist.unFavoriteCurrentTrack().done(function(){
+                        $scope.isFavorited = false;
+                    });
+                }else{
+                    PlaylistManager.selectedPlaylist.favoriteCurrentTrack().done(function(){
+                        $scope.isFavorited = true;
+                    });
+                }
+                
             };
 
             $scope.playOrPause = function(src) {
@@ -34,6 +50,16 @@ Play Music
                         Player.setVolume($scope.volume);
                     }, 0);
                 }
+            };
+
+            $scope.next = function(){
+                var nextTrack = PlaylistManager.selectedPlaylist.getNextTrack();
+                $scope.music = nextTrack;
+            };
+
+            $scope.previous = function(){
+                var previousTrack = PlaylistManager.selectedPlaylist.getPreviousTrack();
+                $scope.music = previousTrack;
             };
 
             $scope.dragDown = function() {

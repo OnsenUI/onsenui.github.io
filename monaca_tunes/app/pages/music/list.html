@@ -4,7 +4,7 @@
 			<ons-search-input ng-model="query.text" class="full line-height bg-white-30 radius-6" placeholder="Search"></ons-search-input>
 		</ons-list-item>
 
-		<ons-list-item ng-click="playMusic(music, $index)" class="block" ng-repeat="music in musics | orderBy:'+name' | filter:query.text" ng-animate="'zoom'">
+		<ons-list-item ng-click="playMusic(music, $index)" class="block" ng-repeat="music in musics | filter:query.text" ng-animate="'zoom'">
 			<img width="100" height="100" class="float-left" ng-src="{{music.album_image}}">
 			<div class="list-item-title-box float-left">
 				<div class="list-item-title">

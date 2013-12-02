@@ -6,7 +6,7 @@
 		</div>
 	</div>		
 
-    <div class="skewed-progress">
+    <div class="skewed-progress no-select">
         <skewed-progress class="full" value="{{player.currentPosition}}" max="{{music.duration}}" left-text="{{player.currentPosition | human_time}}" right-text="{{music.duration | human_time}}"></skewed-progress>
     </div>
 
@@ -14,8 +14,9 @@
 		<div class="option-button topcoat-button white-border-1 bg-black main-color block margin-10">
 			<div class="option-button-icon" style="background-image: url('assets/icons/shuffle.png'); background-size: 20px;"></div>
 		</div>
-		<div ng-click="favorite()" class="option-button topcoat-button white-border-1 bg-black main-color block margin-10">
-			<div class="option-button-icon" style="background-image: url('assets/icons/favorite.png'); background-size: 20px;"></div>
+		<div ng-click="toggleFavorite()" class="option-button topcoat-button white-border-1 bg-black main-color block margin-10 no-padding">
+			<i ng-show="!isFavorited" ng-animate="'zoom-ease'" class="option-button-fa-icon fa fa-heart-o zoom-bounch"></i>
+			<i ng-show="isFavorited" ng-animate="'zoom-ease'" class="option-button-fa-icon fa fa-heart red zoom-bounch"></i>
 		</div>
 		<div class="option-button topcoat-button white-border-1 bg-black main-color block margin-10">
 			<div class="option-button-icon" style="background-image: url('assets/icons/repeat.png'); background-size: 20px;"></div>
@@ -25,14 +26,19 @@
 	<div class="music-controls">
 		<div class="relative">			
 			<div class="topcoat-icon-button round music-button white-border bg-black play-button" ng-click="playOrPause(music.audio)">
-				<div ng-show="player.status === player.MEDIA_STARTING || player.status === player.MEDIA_RUNNING" ng-animate="'zoom-bounce'" class="music-control-icon absolute" style="background-image: url('assets/icons/pause.png')"></div>
+				<div ng-show="!player.status || (player.status !== player.MEDIA_STARTING && player.status !== player.MEDIA_RUNNING)" ng-animate="'slide'" class="music-control-icon absolute" style="background-image: url('assets/icons/play.png')"></div>
 
-				<div ng-show="player.status !== player.MEDIA_STARTING && player.status !== player.MEDIA_RUNNING" ng-animate="'zoom-bounce'" class="music-control-icon absolute" style="background-image: url('assets/icons/play.png')"></div>
+				<div ng-show="player.status === player.MEDIA_STARTING" ng-animate="'slide'" class="music-control-icon absolute">
+					<ons-button class="music-button-spinner no-state" type="quiet" should-spin="true">Lo
+					</ons-button>				
+				</div>
+
+				<div ng-show="player.status === player.MEDIA_RUNNING" ng-animate="'slide'" class="music-control-icon absolute" style="background-image: url('assets/icons/pause.png')"></div>
 			</div>
-			<div class="topcoat-icon-button round music-button white-border bg-black fast-forward-button" ng-click="pushForword()">
+			<div class="topcoat-icon-button round music-button white-border bg-black fast-forward-button" ng-click="next()">
 				<div class="music-control-icon" style="background-image: url('assets/icons/next.png')"></div>
 			</div>
-			<div class="topcoat-icon-button round music-button white-border bg-black fast-backward-button" ng-click="pushPrevious()">
+			<div class="topcoat-icon-button round music-button white-border bg-black fast-backward-button" ng-click="previous()">
 				<div class="music-control-icon" style="background-image: url('assets/icons/back.png')"></div>
 			</div>
 

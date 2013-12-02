@@ -10,9 +10,11 @@
 				var playlists = localStorage.getItem(PLAYLIST_KEY);
 				if (playlists) {
 					this.playlists = JSON.parse(playlists);
-				}else{
+				} else {
 					this.initializePlaylist();
 				}
+
+				this.playlistServices = [];
 			};
 
 			this.initializePlaylist = function() {
@@ -28,15 +30,22 @@
 				localStorage.setItem(PLAYLIST_KEY, JSON.stringify(this.playlists));
 			};
 
-			this.getPlaylist = function(playlistName){
-				if(playlistName === "Featured"){
-					if(!this.featured){
-						this.featured = new Featured();
+			this.getPlaylist = function(playlistName) {
+				var playlistService;
+
+				if (!this.playlistServices[playlistName]) {
+					if (playlistName === "Featured") {
+						playlistService = new Featured();
+					} else {
+						playlistService = new LocalStoragePlaylist(playlistName);
 					}
-					return this.featured;
+
+					this.playlistServices[playlistName] = playlistService;
+				} else {
+					playlistService = this.playlistServices[playlistName];
 				}
 
-				return new LocalStoragePlaylist(playlistName);
+				return playlistService;
 			};
 
 			this.init();

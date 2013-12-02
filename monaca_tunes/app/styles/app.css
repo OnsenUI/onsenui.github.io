@@ -6,6 +6,10 @@ ons-list-item:active {
 	background-color: #333;
 }
 
+.red {
+	color: red;
+}
+
 .topcoat-list {
 	background-color: black;
 	border-top: none;
@@ -199,11 +203,22 @@ ons-list-item:active {
 	height: 2.0rem;
 }
 
+.no-padding {
+	padding: 0;
+}
+
 .option-button-icon {
 	height: 1rem;
 	width: 1.3rem;
 	background-position: center;
 	background-repeat: no-repeat;
+}
+
+.option-button-fa-icon {
+	line-height: 2rem;
+	position: absolute;
+	left: 0.75rem;
+	font-weight: bold;
 }
 
 .music-controls{
@@ -227,6 +242,36 @@ ons-list-item:active {
 .music-button {
 	width: 4rem;
 	height: 4rem;
+}
+
+.music-button-spinner {
+	margin-left: -10px;
+	margin-top: -8px;
+}
+
+.music-button-spinner .spinner {
+	border-color: #25B5C2;
+}
+
+.no-state:focus{
+	background-color: transparent;
+	box-shadow: none;
+	border: 1px solid rgba(0, 0, 0, 0);
+	text-shadow: none;
+}
+
+.no-state:hover{
+	background-color: transparent;
+	box-shadow: none;
+	border: 1px solid rgba(0, 0, 0, 0);
+	text-shadow: none;
+}
+
+.no-state:active{
+	background-color: transparent;
+	box-shadow: none;
+	border: 1px solid rgba(0, 0, 0, 0);
+	text-shadow: none;
 }
 
 .volume-button {

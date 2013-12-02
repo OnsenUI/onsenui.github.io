@@ -22,11 +22,24 @@
 				this.save(array);
 			},
 
+			remove: function(item, uniqueProperty) {
+				var array = this.getArray();
+				var other;
+				for (var i = 0; i < array.length; i++) {
+					other = array[i];
+					if (item[uniqueProperty] === other[uniqueProperty]) {
+						array.slice(i, 1);
+						this.save(array);
+						return;
+					}
+				}
+			},
+
 			addUnique: function(item, uniqueProperty) {
 				var exist = this.exist(item, uniqueProperty);
-				if(exist){
+				if (exist) {
 					return;
-				}else{
+				} else {
 					this.add(item);
 				}
 			},

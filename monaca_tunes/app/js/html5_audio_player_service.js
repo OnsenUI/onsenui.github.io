@@ -1,12 +1,12 @@
 (function() {
 	var myApp = angular.module('myApp');
 
-	myApp.factory('Player', function() {
-		var MEDIA_UNKOWN = 0;
+	myApp.factory('Player', function() {		
 		var MEDIA_STARTING = 1;
 		var MEDIA_RUNNING = 2;
 		var MEDIA_PAUSED = 3;
 		var MEDIA_ENDED = 4;
+		var MEDIA_UNKOWN = 5;
 
 
 		var Player = function() {
@@ -25,44 +25,46 @@
 				this.$scope = $scope;
 				this.media = new Audio();
 				this.media.src = src;
-				this.dancer = new Dancer();
-				// this.dancer.fft( fft, { 
-				// 	fillStyle: '#25b5c2',
-				// 	count: 30,
-				// 	width: 10 
-				// });
-				// this.kick = this.dancer.createKick({
-				// 	threshold: 0.2,
-				// 	onKick: function() {
-				// 		console.log('kicked!');
-				// 		$scope.$apply(function(){
-				// 			that.kicked = 'kicked';
-				// 		});
-				// 	},
-				// 	offKick: function() {
-				// 		// console.log('-');
-				// 		$scope.$apply(function(){
-				// 			that.kicked = '';
-				// 		});
-				// 	}
-				// }).on();
-				this.dancer.load(this.media);
-				this.dancer.play();
+				// if (!this.dance) {
+				// 	this.dancer = new Dancer();
+				// }
+
+				// this.dancer.load(this.media);
+				// this.dancer.play();				
 				this.status = MEDIA_STARTING;
 
 				this.media.addEventListener('play', $.proxy(this.onPlay, this));
 				this.media.addEventListener('pause', $.proxy(this.onPause, this));
 				this.media.addEventListener('ended', $.proxy(this.onEnded, this));
 				this.media.addEventListener('timeupdate', $.proxy(this.onTimeUpdate, this));
+				this.media.addEventListener('error', $.proxy(this.onError, this));
+				this.media.addEventListener('loadeddata', $.proxy(this.onLoadedData, this));
+				this.media.addEventListener('canplaythrough', $.proxy(this.onCanPlayThrough, this));
+				
 				// this.media.addEventListener('progress', $.proxy(this.onProgress, this));
+				this.media.load();
+				this.media.play();
 			};
 
-			this.onPlay = function() {
-				console.log('playing');
+			this.onError =  function(e){
+				console.log('error', e);
+			},
+
+			this.onCanPlayThrough = function(e){
+				console.log('can play through');
 				var that = this;
 				this.$scope.$apply(function() {
 					that.status = MEDIA_RUNNING;
 				});
+			},
+
+			this.onLoadedData = function(e){
+				console.log('loaded data');
+			},
+
+			this.onPlay = function() {
+				console.log('playing');
+				
 			};
 
 			this.onPause = function() {
@@ -96,9 +98,10 @@
 
 
 			this.pause = function() {
-				if (this.media && this.dancer.isPlaying()) {
-					this.dancer.pause();
-				}
+				this.media.pause();
+				// if (this.dancer.isPlaying()) {
+				// 	this.dancer.pause();
+				// }
 			};
 
 			this.setVolume = function(vl) {

@@ -17,7 +17,8 @@ Musiclist
 
 			$scope.playMusic = function(music, index) {
 				var selectedMusic = music;
-				PlaylistManager.selectedPlaylist.currentTrack = music;
+				// PlaylistManager.selectedPlaylist.currentTrack = music;
+				PlaylistManager.selectedPlaylist.setCurrentTrack(music);
 				PlaylistManager.selectedMusic = selectedMusic;
 				// PlaylistManager.selectedMusicIndex = index + 1;
 				// PlaylistManager.selectedMusicSum = $scope.musics.length;
