@@ -1,0 +1,316 @@
+body {
+	background-color: black;
+}
+
+ons-list-item:active {
+	background-color: #333;
+}
+
+.topcoat-list {
+	background-color: black;
+	border-top: none;
+}
+
+.topcoat-list__container {
+	border-top: none;
+}
+
+.topcoat-search-input {
+	border: none;
+	box-shadow: none;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.clear-float {
+    clear: both;
+}
+
+.debug {
+    /*border: 1px solid #ff00ff;*/
+}
+
+.block {
+	display: block;
+}
+
+.main-color {
+	color: #25b5c2;
+}
+
+.topcoat-list__item {
+	list-style: none;
+	padding: 5px;
+}
+
+.topcoat-icon-button:active {
+	border: 2px solid #25b5c2;
+}
+
+.topcoat-icon-button:hover {
+	background-color: black;
+}
+
+.topcoat-icon-button--quiet {
+	color: #25b5c2;	
+	border-radius: 50%;
+	width: 2.5rem;
+	height: 2.5rem;
+}
+
+.topcoat-icon-button--quiet:hover {
+	background-color: transparent;	
+	color: #29C8D6;
+	border: none;
+	box-shadow: none;
+}
+
+.topcoat-icon-button--quiet:active {
+	background-color: transparent;	
+	color: #41EFFF;
+	border: 1px solid #25B5C2;
+	box-shadow: none;	
+}
+
+.topcoat-search-input:focus, .topcoat-search-input--large:focus {
+	border: none;
+	box-shadow: none;
+}
+
+.topcoat-navigation-bar {
+	height: 2.7rem;
+	background-color: rgba(0,0,0,0.8);
+}
+
+.topcoat-navigation-bar__item {
+	line-height: 2.7rem;
+}
+
+.topcoat-tab-bar__button {
+	height: 3.5rem;
+}
+
+.tabbar-item {
+	background-color: transparent;	
+	border-width: 1px;
+	border-style: solid;
+	padding: 5px;
+	width: 1.2rem;
+	height: 1.2rem;
+	line-height: 1.2rem;
+	vertical-align: top;
+}
+
+:checked + .topcoat-tab-bar__button .tabbar-item {
+	border-color: #25B5C2;
+}
+
+.tabbar-item-label {
+	margin-top: -7px;
+	line-height: 0.1rem;
+	font-size: small;
+	letter-spacing: 0;
+}
+
+.active {
+	background-color: #25b5c2;
+	border: none;
+	color: red;
+}
+
+:checked + .tabbar-item {
+	background-color: #25b5c2;
+	border: none;
+}
+
+
+
+.line-height {
+	line-height: 2.7rem;
+}
+
+.bg-white-30 {
+	background-color: rgba(255,255,255,0.3);
+}
+
+.bg-black {
+	background-color: black;
+}
+
+.radius-6 {
+	border-radius: 6px;
+}
+
+.title-box {
+	color: white;
+	background-color: rgba(0,0,0,0.8);
+}
+
+.no-margin {
+	margin: 0;
+}
+
+.margin-10 {
+	margin: 10px;
+}
+
+.no-margin-bottom {
+	margin-bottom: 0;
+}
+
+.round {
+	border-radius: 50%;
+}
+
+.white-border {
+	border: 2px solid white;
+}
+
+.white-border-1 {
+	border: 1px solid white;
+}
+
+.skewed-progress {
+	color: white;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 350px;
+}
+
+.option-controls {
+	position: absolute;
+	bottom: 68px;
+	right: 230px;
+}
+
+.option-button {	
+	padding-top: 7px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 2.7rem;
+	height: 2.0rem;
+}
+
+.option-button-icon {
+	height: 1rem;
+	width: 1.3rem;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.music-controls{
+	position: absolute;
+	right: 0;
+	bottom: 20px;
+	width: 200px;
+	height: 250px;
+}
+
+.music-control-icon {
+	height: 2rem;
+	width: 2rem;
+	margin-top: 13px;
+	margin-left: 3px;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.music-button {
+	width: 4rem;
+	height: 4rem;
+}
+
+.volume-button {
+	width: 6rem;
+	height: 6rem;
+	position: absolute;
+	top: 100px;
+	left: 90px;
+}
+
+.playlist-item-label {
+	margin-top: 35px;
+	margin-left: 15px;
+	color: white;
+	font-weight: bold;
+	font-size: 19px;
+}
+
+.list-item-title-box {
+	margin-top: 30px;
+	margin-left: 15px;
+	width: 50%;
+}
+
+.list-item-title {
+	font-weight: bold;
+	font-size: 19px;
+	text-overflow: ellipsis;
+  	white-space: nowrap;
+  	overflow: hidden;  	
+}
+
+.list-item-subtitle {
+	font-size: 12px;
+}
+
+
+.list-header {
+	padding-left: 5px;
+	font-weight: bold;
+}
+
+.list-arrow {
+	width: 1rem;
+	margin-top: 35px;
+	margin-right: 4px;
+}
+
+.play-button {
+	position: absolute;
+	top: 50px;
+	left: 35px;
+}
+
+.fast-forward-button{
+	position: absolute;
+	top: 20px;
+	left: 110px;
+}
+
+.fast-backward-button{
+	position: absolute;
+	top: 125px;
+	left: 10px;
+}
+
+.line-height-4 {
+	line-height: 4rem;
+}
+
+.topcoat-tab-bar {
+	box-shadow: 0 -3px 20px #000;
+}
+
+.topcoat-tab-bar__button {
+	background-color: #222;
+	box-shadow: none;
+	padding: 0;
+}
+
+.topcoat-tab-bar__button:active,
+.topcoat-tab-bar__button--large:active,
+:checked + .topcoat-tab-bar__button {
+  color: #25B5C2;
+  background-color: #222;
+  box-shadow: none;  
+}

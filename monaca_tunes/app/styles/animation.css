@@ -1,0 +1,21 @@
+.zoom-bounce-show {
+  -webkit-transition: .5s cubic-bezier(0.175, 0.885, 0.6, 1.82) all .001s; /* Chrome */
+  opacity: 0;
+  -webkit-transform: scale(0.6);
+}
+
+.zoom-bounce-show.zoom-bounce-show-active {
+  opacity: 1;
+  -webkit-transform: scale(1.0);
+}
+
+.zoom-bounce-hide {
+  -webkit-transition: .5s ease all .001s; /* Chrome */
+  opacity: 1;
+  -webkit-transform: scale(1.0);
+}
+
+.zoom-bounce-hide.zoom-bounce-hide-active {
+  opacity: 0;
+  -webkit-transform: scale(0.6);
+}

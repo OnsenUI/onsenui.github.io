@@ -1,0 +1,44 @@
+<div class="page center" ng-controller="musicPlayController">
+	<div class="title-box">
+		<h3 class="no-margin">{{music.name}}</h3>
+		<div>
+			<small>{{music.artist_name}} - {{music.album_name}}</small>
+		</div>
+	</div>		
+
+    <div class="skewed-progress">
+        <skewed-progress class="full" value="{{player.currentPosition}}" max="{{music.duration}}" left-text="{{player.currentPosition | human_time}}" right-text="{{music.duration | human_time}}"></skewed-progress>
+    </div>
+
+	<div class="option-controls">
+		<div class="option-button topcoat-button white-border-1 bg-black main-color block margin-10">
+			<div class="option-button-icon" style="background-image: url('assets/icons/shuffle.png'); background-size: 20px;"></div>
+		</div>
+		<div ng-click="favorite()" class="option-button topcoat-button white-border-1 bg-black main-color block margin-10">
+			<div class="option-button-icon" style="background-image: url('assets/icons/favorite.png'); background-size: 20px;"></div>
+		</div>
+		<div class="option-button topcoat-button white-border-1 bg-black main-color block margin-10">
+			<div class="option-button-icon" style="background-image: url('assets/icons/repeat.png'); background-size: 20px;"></div>
+		</div>
+	</div>
+
+	<div class="music-controls">
+		<div class="relative">			
+			<div class="topcoat-icon-button round music-button white-border bg-black play-button" ng-click="playOrPause(music.audio)">
+				<div ng-show="player.status === player.MEDIA_STARTING || player.status === player.MEDIA_RUNNING" ng-animate="'zoom-bounce'" class="music-control-icon absolute" style="background-image: url('assets/icons/pause.png')"></div>
+
+				<div ng-show="player.status !== player.MEDIA_STARTING && player.status !== player.MEDIA_RUNNING" ng-animate="'zoom-bounce'" class="music-control-icon absolute" style="background-image: url('assets/icons/play.png')"></div>
+			</div>
+			<div class="topcoat-icon-button round music-button white-border bg-black fast-forward-button" ng-click="pushForword()">
+				<div class="music-control-icon" style="background-image: url('assets/icons/next.png')"></div>
+			</div>
+			<div class="topcoat-icon-button round music-button white-border bg-black fast-backward-button" ng-click="pushPrevious()">
+				<div class="music-control-icon" style="background-image: url('assets/icons/back.png')"></div>
+			</div>
+
+			<circular-progress hm-drag-left="$parent.dragDown()" hm-drag-down="$parent.dragDown()" hm-drag-right="$parent.dragUp()" hm-drag-up="$parent.dragUp()" class="volume-button" percentage="{{volume}}">
+				
+			</circular-progress>
+		</div>
+	</div>
+</div>
