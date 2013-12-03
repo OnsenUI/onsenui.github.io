@@ -9,9 +9,11 @@ Musiclist
 		function($scope, $rootScope, PlaylistManager) {
 
 			$scope.playlist = PlaylistManager.selectedPlaylist;
+			$scope.isLoading = true;
 			$scope.playlist.next().then(function(tracks){
 				$scope.$apply(function(){
 					$scope.musics = tracks;
+					$scope.isLoading = false;
 				});
 			});
 
@@ -26,7 +28,7 @@ Musiclist
 				// PlaylistManager.showMusicNumber = PlaylistManager.selectedMusicIndex + '/' + $scope.musics.length;
 
 				$rootScope.$broadcast('music-detail', selectedMusic);
-				$scope.ons.navigator.pushPage('pages/music/detail.html', PlaylistManager.showMusicNumber);
+				$scope.ons.navigator.pushPage('pages/music/detail.html', 'Play');
 			}
 			
 		}

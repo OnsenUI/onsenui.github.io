@@ -8,7 +8,7 @@
 				this.tracks = [];
 				this.currentTrack = null;
 				this.currentPage = 0;
-				this.perPage = 10;
+				this.perPage = 30;
 				this.busy = false;
 				this.noMore = false;
 				this.favoriteArrayUtil = new LocalStorageArrayUtil('Favorites');
