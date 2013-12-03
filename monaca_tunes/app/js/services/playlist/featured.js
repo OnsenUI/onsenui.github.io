@@ -9,7 +9,8 @@
 				var that = this;
 				if(this.tracks.length > 0){
 					setTimeout(function(){
-						defer.resolve([]);
+						// defer.resolve([]);
+						defer.resolve(that.tracks);
 					}, 0);
 				}else{
 					$.ajax({

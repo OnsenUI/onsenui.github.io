@@ -253,6 +253,10 @@ ons-list-item:active {
 	border-color: #25B5C2;
 }
 
+ons-list {
+	display: block;	
+}
+
 .no-state:focus{
 	background-color: transparent;
 	box-shadow: none;

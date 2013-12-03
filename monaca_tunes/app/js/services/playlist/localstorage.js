@@ -15,12 +15,13 @@
 				var that = this;
 
 				setTimeout(function() {
-					if (that.currentPage > 0) {
-						defer.resolve([]);
-					} else {
+					// if (that.currentPage > 0) {
+					// 	// defer.resolve([]);
+					// 	defer.resolve(that.tracks);
+					// } else {
 						var tracks = that.localStorageUtil.getArray();
 						defer.resolve(tracks);
-					}
+					// }
 				}, 0);
 
 				return defer.promise();

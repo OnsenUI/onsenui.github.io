@@ -101,7 +101,8 @@
 
 				this.getNextData().then(function(tracks) {
 					if (tracks.length > 0) {
-						that.tracks = that.tracks.concat(tracks);
+						// that.tracks = that.tracks.concat(tracks);
+						that.tracks = tracks;
 						that.currentPage++;
 					} else {
 						that.noMore = true;
