@@ -6,15 +6,15 @@ Play Music
 
     var app = angular.module('myApp');
 
-    app.controller('musicPlayController', ['$scope', '$rootScope', 'PlaylistManager', 'Player',
-        function($scope, $rootScope, PlaylistManager, Player) {
+    app.controller('musicPlayController', ['$scope', '$rootScope', 'PlaylistManager', 'Player', 'Orchestrator',
+        function($scope, $rootScope, PlaylistManager, Player, Orchestrator) {
 
             $scope.volume = 50;
             $scope.player = Player;
-            $scope.music = PlaylistManager.selectedMusic;
+            $scope.playlist = PlaylistManager.selectedPlaylist;
 
             var favoriteList = PlaylistManager.getPlaylist('Favorites');
-            favoriteList.exist($scope.music).done(function(favorited){
+            favoriteList.exist($scope.playlist.currentTrack).done(function(favorited){
                 $scope.$apply(function(){
                     $scope.isFavorited = favorited;
                 });
@@ -27,6 +27,7 @@ Play Music
                 $scope.ons.tabbar.setTabbarVisibility(true);
             });
 
+
             $scope.toggleFavorite = function() {
                 if($scope.isFavorited){
                     PlaylistManager.selectedPlaylist.unFavoriteCurrentTrack().done(function(){
@@ -37,7 +38,6 @@ Play Music
                         $scope.isFavorited = true;
                     });
                 }
-                
             };
 
             $scope.playOrPause = function(src) {
@@ -45,7 +45,7 @@ Play Music
                 if (Player.status === Player.MEDIA_STARTING || Player.status === Player.MEDIA_RUNNING) {
                     Player.pause();
                 } else {
-                    Player.play(src, $scope);
+                    Player.play(src);
                     setTimeout(function() {
                         Player.setVolume($scope.volume);
                     }, 0);
@@ -53,13 +53,11 @@ Play Music
             };
 
             $scope.next = function(){
-                var nextTrack = PlaylistManager.selectedPlaylist.getNextTrack();
-                $scope.music = nextTrack;
+                PlaylistManager.selectedPlaylist.getNextTrack();
             };
 
             $scope.previous = function(){
-                var previousTrack = PlaylistManager.selectedPlaylist.getPreviousTrack();
-                $scope.music = previousTrack;
+                PlaylistManager.selectedPlaylist.getPreviousTrack();
             };
 
             $scope.dragDown = function() {
@@ -80,6 +78,8 @@ Play Music
                     }, 0);
                 }
             };
+
+            Player.play($scope.playlist.currentTrack.audio);
 
         }
     ]);

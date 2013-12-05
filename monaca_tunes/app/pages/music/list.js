@@ -10,12 +10,18 @@ Musiclist
 
 			$scope.playlist = PlaylistManager.selectedPlaylist;
 			$scope.isLoading = true;
-			$scope.playlist.next().then(function(tracks){
-				$scope.$apply(function(){
-					$scope.musics = tracks;
-					$scope.isLoading = false;
+
+			function loadMusic() {
+				$scope.playlist.next().then(function(tracks) {
+					$scope.$apply(function() {
+						$scope.musics = tracks;
+						$scope.isLoading = false;
+					});
 				});
-			});
+			}
+
+			loadMusic();			
+
 
 			$scope.playMusic = function(music, index) {
 				var selectedMusic = music;
@@ -29,8 +35,8 @@ Musiclist
 
 				$rootScope.$broadcast('music-detail', selectedMusic);
 				$scope.ons.navigator.pushPage('pages/music/detail.html', 'Play');
-			}
-			
+			}			
+
 		}
 
 	]);

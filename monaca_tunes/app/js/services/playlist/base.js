@@ -1,85 +1,148 @@
 (function() {
 	var myApp = angular.module('myApp');
 
-	myApp.factory('BasePlaylist', function(LocalStorageArrayUtil, $timeout) {
+	myApp.factory('BasePlaylist', function(LocalStorageArrayUtil, $timeout, $rootScope, SettingService) {
 
 		var BasePlaylist = Class.extend({
 			init: function() {
+				var that = this;
+
+				this.resetData();
+				this.favoriteArrayUtil = new LocalStorageArrayUtil('Favorites');
+
+				$rootScope.$on('language:changed', function() {
+					that.resetData();
+				});
+
+				setTimeout(function(){
+					$rootScope.$apply(function(){
+						this.repeat = SettingService.get('repeat');
+						this.shuffle = SettingService.get('shuffle');
+					});
+				}, 0);
+				
+			},
+
+			toggleRepeat: function() {
+				this.setRepeat(!this.repeat);
+			},
+
+			setRepeat: function(repeat) {
+				var that = this;
+				this.repeat = repeat;
+				setTimeout(function() {
+					SettingService.set('repeat', repeat);
+				}, 0);
+			},
+
+			toggleShuffle: function() {
+				this.setShuffle(!this.shuffle);
+			},
+
+			setShuffle: function(shuffle) {
+				var that = this;
+				this.shuffle = shuffle;
+				setTimeout(function() {
+					SettingService.set('shuffle', shuffle);
+				}, 0);
+			},
+
+			resetData: function() {
 				this.tracks = [];
 				this.currentTrack = null;
 				this.currentPage = 0;
 				this.perPage = 30;
 				this.busy = false;
 				this.noMore = false;
-				this.favoriteArrayUtil = new LocalStorageArrayUtil('Favorites');
 			},
 
-			setCurrentTrack: function(track){
+			setCurrentTrack: function(track) {
 				this.currentTrack = track;
 				this.calculateCurrentTrackIndex();
 			},
 
-			getNextTrack: function(){				
-				this.currentTrackIndex++;
-				if(this.currentTrackIndex >= this.tracks.length){
-					this.currentTrackIndex = 0;
+			getNextTrack: function() {
+				if (this.repeat) {
+					return this.currentTrack;
+				}
+
+				if (this.shuffle) {
+					this.currentTrackIndex = this.getShuffledIndex();
+				} else {
+					this.currentTrackIndex++;
+					if (this.currentTrackIndex >= this.tracks.length) {
+						this.currentTrackIndex = 0;
+					}
+				}
+				this.currentTrack = this.tracks[this.currentTrackIndex];
+				return this.currentTrack;
+			},
+
+			getShuffledIndex: function() {
+				var max = this.tracks.length;
+				var random = Math.floor(Math.random() * (max));
+				return random;
+			},
+
+			getPreviousTrack: function() {
+				if (this.repeat) {
+					return this.currentTrack;
+				}
+
+				if (this.shuffle) {
+					this.currentTrackIndex = this.getShuffledIndex();
+				} else {
+					this.currentTrackIndex--;
+					if (this.currentTrackIndex < 0) {
+						this.currentTrackIndex = this.tracks.length - 1;
+					}
 				}
 
 				this.currentTrack = this.tracks[this.currentTrackIndex];
 				return this.currentTrack;
 			},
 
-			getPreviousTrack: function(){
-				this.currentTrackIndex--;
-				if(this.currentTrackIndex < 0){
-					this.currentTrackIndex = this.tracks.length - 1;
-				}
-
-				this.currentTrack = this.tracks[this.currentTrackIndex];
-				return this.currentTrack;
-			},
-
-			calculateCurrentTrackIndex: function(){
+			calculateCurrentTrackIndex: function() {
 				var track;
 				for (var i = 0; i < this.tracks.length; i++) {
 					track = this.tracks[i]
-					if(track.id === this.currentTrack.id){
+					if (track.id === this.currentTrack.id) {
 						this.currentTrackIndex = i;
 						return;
 					}
-				};				
+				};
 			},
 
-			exist: function(track){
+			exist: function(track) {
 				var defer = $.Deferred();
 				var that = this;
 				var exist;
-				$timeout(function(){
+				$timeout(function() {
 					exist = that.favoriteArrayUtil.exist(track, 'id');
 					defer.resolve(exist);
 				});
-				
+
 				return defer.promise();
 			},
 
-			unFavoriteCurrentTrack: function(){
+			unFavoriteCurrentTrack: function() {
 				var defer = $.Deferred();
-				if(this.currentTrack){
+				if (this.currentTrack) {
 					this.favoriteArrayUtil.remove(this.currentTrack, 'id');
 					defer.resolve();
-				}else{
+				} else {
 					return defer.reject('current track is null!');
 				}
 
 				return defer.promise();
 			},
 
-			favoriteCurrentTrack: function(){
+			favoriteCurrentTrack: function() {
 				var defer = $.Deferred();
-				if(this.currentTrack){
+				if (this.currentTrack) {
 					this.favoriteArrayUtil.addUnique(this.currentTrack, 'id');
 					defer.resolve();
-				}else{
+				} else {
 					return defer.reject('current track is null!');
 				}
 

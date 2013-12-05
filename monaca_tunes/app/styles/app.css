@@ -6,8 +6,16 @@ ons-list-item:active {
 	background-color: #333;
 }
 
+.language {
+	color: #25B5C2;
+}
+
 .red {
 	color: red;
+}
+
+.gray {
+	color: gray;
 }
 
 .topcoat-list {
@@ -362,4 +370,40 @@ ons-list {
   color: #25B5C2;
   background-color: #222;
   box-shadow: none;  
+}
+
+
+.topcoat-input-select--large,
+.topcoat-input-select,
+select {
+  -webkit-appearance:none;
+  background-repeat: no-repeat;
+  background-color: rgba(0,0,0,0);  
+  border:0;
+  font-weight:300;
+  display:inline;
+  vertical-align:middle;
+  color:#333;
+  padding: auto 0;
+  overflow:hidden;
+  box-sizing:border-box;
+
+}
+
+.topcoat-input-select--large {
+  width:420px;
+  font-size:1.6rem;
+  background-image: url(http://i.imgur.com/7rGM4IX.png);
+  text-indent:40px;
+  padding:1.2rem 0;
+}
+
+.topcoat-input-select {
+	color: #25B5C2;
+	padding: 0;
+  width:200px;
+  font-size:1rem;
+  background-image: url(http://i.imgur.com/nA9xx1X.png);
+  text-indent:20px;
+  line-height: 2rem;
 }

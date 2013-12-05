@@ -1,7 +1,7 @@
 (function() {
 	var myApp = angular.module('myApp');
 
-	myApp.factory('Player', function() {		
+	myApp.factory('Player', function($rootScope) {		
 		var MEDIA_STARTING = 1;
 		var MEDIA_RUNNING = 2;
 		var MEDIA_PAUSED = 3;
@@ -19,10 +19,9 @@
 			this.kicked = '';
 			this.status = Player.MEDIA_UNKOWN;
 
-			this.play = function(src, $scope) {
+			this.play = function(src) {
 				var that = this;
 				this.currentPosition = 0;
-				this.$scope = $scope;
 				this.media = new Audio();
 				this.media.src = src;
 				// if (!this.dance) {
@@ -53,7 +52,7 @@
 			this.onCanPlayThrough = function(e){
 				console.log('can play through');
 				var that = this;
-				this.$scope.$apply(function() {
+				$rootScope.$apply(function() {
 					that.status = MEDIA_RUNNING;
 				});
 			},
@@ -69,21 +68,22 @@
 
 			this.onPause = function() {
 				var that = this;
-				this.$scope.$apply(function() {
+				$rootScope.$apply(function() {
 					that.status = MEDIA_PAUSED;
 				});
 			};
 
 			this.onEnded = function() {
 				var that = this;
-				this.$scope.$apply(function() {
+				$rootScope.$broadcast('play:ended');
+				$rootScope.$apply(function() {
 					that.status = MEDIA_ENDED;
 				});
 			};
 
 			this.onTimeUpdate = function() {
 				var that = this;
-				this.$scope.$apply(function() {
+				$rootScope.$apply(function() {
 					that.currentPosition = that.media.currentTime;
 				});
 			};
@@ -91,7 +91,7 @@
 			// this.onProgress = function() {
 			// 	console.log('progress', event);
 			// 	var that = this;
-			// 	this.$scope.$apply(function() {
+			// 	$rootScope.$apply(function() {
 			// 		that.buffered = that.media.buffered.end(0);
 			// 	});
 			// };

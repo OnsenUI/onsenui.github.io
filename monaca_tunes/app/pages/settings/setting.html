@@ -1,11 +1,9 @@
-<div class="page">
+<div class="page center" ng-controller="SettingController">
+	<h3 class="language">Lyric Language</h3>
 
 	<div>
-		<label>Language</label>
-		 <ons-select>
-		 	<option>English</option>
-		 	<option>English</option>
-		 </ons-select>
+		 <select ng-model="language" ng-options="l for l in languages" class="topcoat-input-select">		 	
+		 </select>
 	</div>
 
 </div>
