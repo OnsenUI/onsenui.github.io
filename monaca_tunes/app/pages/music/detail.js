@@ -9,16 +9,22 @@ Play Music
     app.controller('musicPlayController', ['$scope', '$rootScope', 'PlaylistManager', 'Player', 'Orchestrator',
         function($scope, $rootScope, PlaylistManager, Player, Orchestrator) {
 
-            $scope.volume = 50;
-            $scope.player = Player;
-            $scope.playlist = PlaylistManager.selectedPlaylist;
+            function init(){
+                $scope.volume = 50;
+                $scope.player = Player;
+                $scope.playlist = PlaylistManager.selectedPlaylist;
 
-            var favoriteList = PlaylistManager.getPlaylist('Favorites');
-            favoriteList.exist($scope.playlist.currentTrack).done(function(favorited){
-                $scope.$apply(function(){
-                    $scope.isFavorited = favorited;
+                var favoriteList = PlaylistManager.getPlaylist('Favorites');
+                favoriteList.exist($scope.playlist.currentTrack).done(function(favorited){
+                    $scope.$apply(function(){
+                        $scope.isFavorited = favorited;
+                    });
                 });
-            });
+
+                Orchestrator.play();
+            }
+
+            init();
             
             $scope.ons.tabbar.setTabbarVisibility(false);
 
@@ -40,12 +46,12 @@ Play Music
                 }
             };
 
-            $scope.playOrPause = function(src) {
+            $scope.playOrPause = function() {
                 console.log('play or pause');
                 if (Player.status === Player.MEDIA_STARTING || Player.status === Player.MEDIA_RUNNING) {
                     Player.pause();
                 } else {
-                    Player.play(src);
+                    Orchestrator.play();
                     setTimeout(function() {
                         Player.setVolume($scope.volume);
                     }, 0);
@@ -53,11 +59,11 @@ Play Music
             };
 
             $scope.next = function(){
-                PlaylistManager.selectedPlaylist.getNextTrack();
+                Orchestrator.playNext();
             };
 
             $scope.previous = function(){
-                PlaylistManager.selectedPlaylist.getPreviousTrack();
+                Orchestrator.playPrevious();
             };
 
             $scope.dragDown = function() {
@@ -78,9 +84,6 @@ Play Music
                     }, 0);
                 }
             };
-
-            Player.play($scope.playlist.currentTrack.audio);
-
         }
     ]);
 })();

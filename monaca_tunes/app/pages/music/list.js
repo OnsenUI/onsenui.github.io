@@ -24,16 +24,9 @@ Musiclist
 
 
 			$scope.playMusic = function(music, index) {
-				var selectedMusic = music;
-				// PlaylistManager.selectedPlaylist.currentTrack = music;
+				var selectedMusic = music;				
 				PlaylistManager.selectedPlaylist.setCurrentTrack(music);
-				PlaylistManager.selectedMusic = selectedMusic;
-				// PlaylistManager.selectedMusicIndex = index + 1;
-				// PlaylistManager.selectedMusicSum = $scope.musics.length;
-				// PlaylistManager.selectedMusicList = $scope.musics;
-				// PlaylistManager.showMusicNumber = PlaylistManager.selectedMusicIndex + '/' + $scope.musics.length;
-
-				$rootScope.$broadcast('music-detail', selectedMusic);
+				PlaylistManager.selectedMusic = selectedMusic;								
 				$scope.ons.navigator.pushPage('pages/music/detail.html', 'Play');
 			}			
 

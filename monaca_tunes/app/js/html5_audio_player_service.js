@@ -20,6 +20,10 @@
 			this.status = Player.MEDIA_UNKOWN;
 
 			this.play = function(src) {
+				if(this.status <= MEDIA_RUNNING){
+					this.pause();
+				}
+
 				var that = this;
 				this.currentPosition = 0;
 				this.media = new Audio();
@@ -29,8 +33,7 @@
 				// }
 
 				// this.dancer.load(this.media);
-				// this.dancer.play();				
-				this.status = MEDIA_STARTING;
+				// this.dancer.play();								
 
 				this.media.addEventListener('play', $.proxy(this.onPlay, this));
 				this.media.addEventListener('pause', $.proxy(this.onPause, this));
@@ -62,8 +65,11 @@
 			},
 
 			this.onPlay = function() {
-				console.log('playing');
-				
+				console.log('onPlay');
+				var that = this;
+				$rootScope.$apply(function(){
+					that.status = MEDIA_STARTING;
+				})
 			};
 
 			this.onPause = function() {

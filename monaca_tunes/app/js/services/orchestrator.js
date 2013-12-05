@@ -8,12 +8,22 @@
 				var that = this;
 				$rootScope.$on('play:ended', function() {
 					console.log('play:ended received');
-					PlaylistManager.selectedPlaylist.getNextTrack();
-					that.play();
+					that.playNext();	
 				});
 			},
 
+			playNext: function(){
+				PlaylistManager.selectedPlaylist.getNextTrack();
+				this.play();
+			},
+
+			playPrevious: function(){
+				PlaylistManager.selectedPlaylist.getPreviousTrack();
+				this.play();
+			},
+
 			play: function() {
+				$rootScope.$broadcast('play:music', PlaylistManager.selectedPlaylist.currentTrack);
 				Player.play(PlaylistManager.selectedPlaylist.currentTrack.audio);
 			},
 
