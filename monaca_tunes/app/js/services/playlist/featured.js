@@ -14,7 +14,7 @@
 					}, 0);
 				}else{
 					var language = SettingService.get('language');
-					var isoLanguage = LanguageService.getISO(language);
+					var isoLanguage = LanguageService.getISO(language) || 'en';
 					var url = 'http://api.jamendo.com/v3.0/tracks/?client_id=615ea00d&order=popularity_week&include=stats&offset=' + this.skip + '&limit=' + this.perPage + '&lang=' + isoLanguage;
 					$.ajax({
 						url: url,
