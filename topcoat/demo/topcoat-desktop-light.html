@@ -8,7 +8,8 @@
     <link rel="stylesheet" type="text/css" href="fonts/stylesheet.css">
     <link rel="stylesheet" type="text/css" href="../css/topcoat-desktop-light.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/brackets.css"><!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/brackets.css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.2/css/font-awesome.css" rel="stylesheet"><!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   </head>
   <body class="light">
@@ -29,9 +30,12 @@
               <option value="topcoat-desktop-light.html" selected="selected">Topcoat Desktop Light</option>
               <option value="topcoat-mobile-dark.html">Topcoat Mobile Dark</option>
               <option value="topcoat-mobile-light.html">Topcoat Mobile Light</option>
-              <option value="topcoat-mobile-onsen-flat-light.html">Topcoat Mobile Onsen Flat Light</option>
-              <option value="topcoat-mobile-onsen-lightblue.html">Topcoat Mobile Onsen Lightblue</option>
-              <option value="topcoat-mobile-onsen-red.html">Topcoat Mobile Onsen Red</option>
+              <option value="topcoat-mobile-onsen-blue.html">Topcoat Mobile Onsen Blue</option>
+              <option value="topcoat-mobile-onsen-green.html">Topcoat Mobile Onsen Green</option>
+              <option value="topcoat-mobile-onsen-orange.html">Topcoat Mobile Onsen Orange</option>
+              <option value="topcoat-mobile-onsen-pink.html">Topcoat Mobile Onsen Pink</option>
+              <option value="topcoat-mobile-onsen-purple.html">Topcoat Mobile Onsen Purple</option>
+              <option value="topcoat-mobile-onsen-yellow.html">Topcoat Mobile Onsen Yellow</option>
             </select>
           </div>
           <div id="pageNav">
@@ -50,6 +54,7 @@
               <li><a href="#large-iconbutton">Large Icon Button</a></li>
               <li><a href="#large-quieticon button">Large Quiet Icon Button</a></li>
               <li><a href="#notification">Notification</a></li>
+              <li><a href="#page">Page</a></li>
               <li><a href="#radio-button">Radio Button</a></li>
               <li><a href="#range">Range</a></li>
               <li><a href="#search-input">Search Input</a></li>
@@ -82,6 +87,116 @@
           </div>
         </header>
         <div id="content" class="max-width">
+          <article class="component">
+            <div style="width:300px; float:left; margin-right: 50px; margin-bottom: 50px" class="showcase">
+              <div class="topcoat-navigation-bar">
+                <div class="topcoat-navigation-bar__item left quarter"><span style="vertical-align: middle" class="topcoat-icon-button--quiet"><i class="fa fa-lg fa-bars"></i></span></div>
+                <div class="topcoat-navigation-bar__item center half"><span class="topcoat-navigation-bar__title">Title</span></div>
+                <div class="topcoat-navigation-bar__item right quarter"><span style="vertical-align: middle" class="topcoat-icon-button--quiet"><i class="fa fa-lg fa-angle-right"></i></span></div>
+              </div>
+              <div class="topcoat-list">
+                <h3 class="topcoat-list__header">Category</h3>
+                <ul class="topcoat-list__container">
+                  <li class="topcoat-list__item">Item</li>
+                  <li class="topcoat-list__item">Item</li>
+                </ul>
+                <h3 class="topcoat-list__header">Category</h3>
+                <ul class="topcoat-list__container">
+                  <li class="topcoat-list__item">Item</li>
+                  <li class="topcoat-list__item">Item</li>
+                  <li class="topcoat-list__item">Item</li>
+                </ul>
+                <h3 class="topcoat-list__header">Category</h3>
+                <ul class="topcoat-list__container">
+                  <li class="topcoat-list__item">Item</li>
+                  <li class="topcoat-list__item">Item</li>
+                  <li class="topcoat-list__item">Item</li>
+                  <li class="topcoat-list__item">Item</li>
+                </ul>
+              </div>
+              <div class="topcoat-tab-bar full">
+                <label class="topcoat-tab-bar__item">
+                  <input type="radio" name="tab-bar">
+                  <button class="topcoat-tab-bar__button full">One</button>
+                </label>
+                <label class="topcoat-tab-bar__item">
+                  <input type="radio" name="tab-bar">
+                  <button class="topcoat-tab-bar__button full">Two</button>
+                </label>
+                <label class="topcoat-tab-bar__item">
+                  <input type="radio" name="tab-bar">
+                  <button class="topcoat-tab-bar__button full">Three</button>
+                </label>
+              </div>
+            </div>
+            <div style="width:300px; float:left; margin-right: 50px; margin-bottom: 50px" class="showcase">
+              <div class="topcoat-navigation-bar">
+                <div class="topcoat-navigation-bar__item left quarter"><span style="vertical-align: middle" class="topcoat-icon-button--quiet"><i class="fa fa-lg fa-bars"></i></span></div>
+                <div class="topcoat-navigation-bar__item center half"><span class="topcoat-navigation-bar__title">Title</span></div>
+                <div class="topcoat-navigation-bar__item right quarter"><span style="vertical-align: middle" class="topcoat-icon-button--quiet"><i class="fa fa-lg fa-angle-right"></i></span></div>
+              </div>
+              <div class="topcoat-list">
+                <h3 class="topcoat-list__header">
+                  <input placeholder="Search" class="topcoat-search-input full">
+                </h3>
+                <h3 class="topcoat-list__header">
+                  <input type="text" placeholder="text" value="" class="topcoat-text-input full">
+                </h3>
+                <ul class="topcoat-list__container">
+                  <li class="topcoat-list__item"><span>Notification</span><span style="float: right" class="topcoat-notification">1</span></li>
+                  <li class="topcoat-list__item"><span>Radio Button</span><span style="float: right">
+                      <label class="topcoat-radio-button">
+                        <input type="radio" name="topcoat">
+                        <div class="topcoat-radio-button__checkmark"></div>
+                      </label>
+                      <label class="topcoat-radio-button">OR
+                        <input type="radio" name="topcoat">
+                        <div class="topcoat-radio-button__checkmark"></div>
+                      </label></span></li>
+                  <li class="topcoat-list__item">	<span>Checkbox</span><span style="float: right">
+                      <label class="topcoat-checkbox">
+                        <input type="checkbox">
+                        <div class="topcoat-checkbox__checkmark">											  											</div>
+                      </label></span></li>
+                  <li class="topcoat-list__item">	<span>Switch</span><span style="float: right">
+                      <label class="topcoat-switch">
+                        <input type="checkbox" class="topcoat-switch__input">
+                        <div class="topcoat-switch__toggle">										</div>
+                      </label></span></li>
+                  <li class="topcoat-list__item">	<span>Range</span><span style="float: right">
+                      <input type="range" class="topcoat-range"></span></li>
+                </ul>
+                <h3 class="topcoat-list__header">Button									</h3>
+                <ul class="topcoat-list__container">
+                  <li class="topcoat-list__item">
+                    <button class="topcoat-button">Button</button>
+                    <button class="topcoat-button--cta">Button cta</button>
+                  </li>
+                </ul>
+                <h3 class="topcoat-list__header">Quiet Button</h3>
+                <ul class="topcoat-list__container">
+                  <li class="topcoat-list__item">
+                    <button class="topcoat-button--quiet">Button									</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="topcoat-tab-bar full">
+                <label class="topcoat-tab-bar__item">
+                  <input type="radio" name="tab-bar">
+                  <button class="topcoat-tab-bar__button full">One</button>
+                </label>
+                <label class="topcoat-tab-bar__item">
+                  <input type="radio" name="tab-bar">
+                  <button class="topcoat-tab-bar__button full">Two</button>
+                </label>
+                <label class="topcoat-tab-bar__item">
+                  <input type="radio" name="tab-bar">
+                  <button class="topcoat-tab-bar__button full">Three</button>
+                </label>
+              </div>
+            </div>
+            <div style="clear: both"></div>
+          </article>
           <article id="button-bar" class="component">
             <header>
               <h2>Button Bar</h2>
@@ -120,24 +235,29 @@
 .topcoat-button-bar__item:first-child &gt; .topcoat-button-bar__button,
 .topcoat-button-bar__item:first-child &gt; .topcoat-button-bar__button--large {
   border-right: none;
+  border-right: var-border-right--button-bar__button__first;
 }
 
 .topcoat-button-bar__item:last-child &gt; .topcoat-button-bar__button,
 .topcoat-button-bar__item:last-child &gt; .topcoat-button-bar__button--large {
   border-left: none;
+  border-right: var-border-right--button-bar__button__last;
 }
 
 .topcoat-button-bar__button {
   border-radius: inherit;
   background-color: var-background-color--button-bar;
   color: var-color--button-bar--button;
-  border: var-border--button-bar--button;
+  border: var-border--button-bar__button;
+  border-right: var-border-right--button-bar__button;
 }
 
 .topcoat-button-bar__button:active,
 .topcoat-button-bar__button--large:active,
 :checked + .topcoat-button-bar__button {
   background-color: var-background-color--button-bar--button--active;
+  color: var-color--button-bar__button--active;
+  border: var-border--button-bar__button;
 }
 
 .topcoat-button-bar__button:hover {
@@ -172,7 +292,8 @@
   border-radius: inherit;
   background-color: var-background-color--button-bar;
   color: var-color--button-bar--button;
-  border: var-border--button-bar--button;
+  border: var-border--button-bar__button;
+  border-right: var-border-right--button-bar__button;
 }
 
 .topcoat-button-bar__button--large:hover {
@@ -371,11 +492,14 @@
   line-height: 1.313rem;
   letter-spacing: 0;
   color: #454545;
+  color: var-color__button;
   text-shadow: 0 1px #fff;
   vertical-align: top;
   background-color: #e5e9e8;
+  background-color: var-background-color__button;
   box-shadow: inset 0 1px #fff;
-  border: 1px solid #a5a8a8;
+  border: 1px solid #9daca9;
+  border: var-border--button;
   border-radius: 4px;
 }
 
@@ -383,13 +507,16 @@
 .topcoat-button--quiet:hover,
 .topcoat-button--large:hover,
 .topcoat-button--large--quiet:hover {
-  background-color: #edf1f1;
+  background-color: #eff1f1;
+  background-color: var-background-color--hover__button;
 }
 
 .topcoat-button:active,
 .topcoat-button--large:active {
-  background-color: #d3d7d7;
-  box-shadow: inset 0 1px rgba(0,0,0,0.12);
+  background-color: #d2d6d6;
+  background-color: var-background-color--down__button;
+  box-shadow: inset 0 1px rgba(0,0,0,0.1);
+  color: var-color--button--active;
 }
 
 .topcoat-button:focus,
@@ -398,8 +525,6 @@
 .topcoat-button--large--quiet:focus,
 .topcoat-button--cta:focus,
 .topcoat-button--large--cta:focus {
-  border: 1px solid #0940fd;
-  box-shadow: 0 0 0 2px #6fb5f1;
   outline: 0;
 }
 </code></pre>
@@ -432,17 +557,23 @@
 .topcoat-button--quiet:hover,
 .topcoat-button--large--quiet:hover {
   text-shadow: 0 1px #fff;
-  border: 1px solid #a5a8a8;
+  border: 1px solid #9daca9;
+  border: var-border--hover__button--quiet;
+  background-color: var-background-color--quiet-hover;
   box-shadow: inset 0 1px #fff;
+  background-color: var-background-color--quiet-hover;
 }
 
 .topcoat-button--quiet:active,
 .topcoat-button--large--quiet:active {
   color: #454545;
+  color: var-color--active__button--quiet;
   text-shadow: 0 1px #fff;
-  background-color: #d3d7d7;
-  border: 1px solid #a5a8a8;
-  box-shadow: inset 0 1px rgba(0,0,0,0.12);
+  background-color: #d2d6d6;
+  background-color: var-background-color--quiet-active;
+  border: 1px solid #9daca9;
+  border: var-border--active__button--quiet;
+  box-shadow: inset 0 1px rgba(0,0,0,0.1);
 }
 </code></pre>
                 </div>
@@ -492,9 +623,15 @@
                   <h3>CSS</h3>
                   <pre class="css"><code data-language="css">
 .topcoat-button--large--quiet {
+  color: var-quiet-button-color;
   background: transparent;
   border: 1px solid transparent;
   box-shadow: none;
+  color: var-quiet-button-color;
+}
+
+.topcoat-button--large--quiet:active {
+  color: var-color--quiet-active;
 }
 </code></pre>
                 </div>
@@ -518,7 +655,7 @@
                   <pre class="css"><code data-language="css">
 .topcoat-button--cta,
 .topcoat-button--large--cta {
-  border: 1px solid #143250;
+  border: 1px solid #134f7f;
   background-color: #288edf;
   box-shadow: inset 0 1px rgba(255,255,255,0.36);
   color: #fff;
@@ -528,12 +665,12 @@
 
 .topcoat-button--cta:hover,
 .topcoat-button--large--cta:hover {
-  background-color: #509bef;
+  background-color: #4ca1e4;
 }
 
 .topcoat-button--cta:active,
 .topcoat-button--large--cta:active {
-  background-color: #0380e8;
+  background-color: #1e7dc8;
   box-shadow: inset 0 1px rgba(0,0,0,0.12);
 }
 </code></pre>
@@ -799,9 +936,12 @@ input[type=&quot;checkbox&quot;]:checked + .topcoat-checkbox__checkmark:after {
   width: 1rem;
   height: 1rem;
   background: #e5e9e8;
-  border: 1px solid #a5a8a8;
+  background: var-background-color--checkmark;
+  border: 1px solid #9daca9;
+  border: var-border--checkbox;
   border-radius: 3px;
   box-shadow: inset 0 1px #fff;
+  left: 0;
 }
 
 .topcoat-checkbox__checkmark {
@@ -816,7 +956,7 @@ input[type=&quot;checkbox&quot;]:checked + .topcoat-checkbox__checkmark:after {
   width: 14px;
   height: 4px;
   background: transparent;
-  border: 7px solid #666;
+  border: 7px solid #454545;
   border-width: 3px;
   border-top: none;
   border-right: none;
@@ -827,8 +967,23 @@ input[type=&quot;checkbox&quot;]:checked + .topcoat-checkbox__checkmark:after {
 }
 
 input[type=&quot;checkbox&quot;]:focus + .topcoat-checkbox__checkmark:before {
-  border: 1px solid #0940fd;
-  box-shadow: 0 0 0 2px #6fb5f1;
+  border: none;
+  box-shadow: inset 0 1px rgba(255,255,255,0.36), none;
+}
+
+input[type=&quot;checkbox&quot;]:active + .topcoat-checkbox__checkmark:before {
+  border: 1px solid #9daca9;
+  border: var-border--checkbox--active;
+  background-color: #d2d6d6;
+  background-color: var-background-color--down--checkbox;
+  border: var-border--checkbox--active;
+  box-shadow: inset 0 1px rgba(0,0,0,0.1);
+}
+
+input[type=&quot;checkbox&quot;]:disabled:active + .topcoat-checkbox__checkmark:before {
+  border: 1px solid #9daca9;
+  background: #e5e9e8;
+  box-shadow: inset 0 1px #fff;
 }
 
 /**
@@ -941,8 +1096,10 @@ input[type=&quot;checkbox&quot;]:focus + .topcoat-checkbox__checkmark:before {
   text-shadow: 0 1px #fff;
   vertical-align: baseline;
   background-color: #e5e9e8;
+  background-color: var-background-color__icon-button;
   box-shadow: inset 0 1px #fff;
-  border: 1px solid #a5a8a8;
+  border: 1px solid #9daca9;
+  border: var-border--icon-button;
   border-radius: 4px;
   border-radius: var-icon-button-border-radius;
 }
@@ -951,12 +1108,12 @@ input[type=&quot;checkbox&quot;]:focus + .topcoat-checkbox__checkmark:before {
 .topcoat-icon-button--quiet:hover,
 .topcoat-icon-button--large:hover,
 .topcoat-icon-button--large--quiet:hover {
-  background-color: #edf1f1;
+  background-color: #eff1f1;
 }
 
 .topcoat-icon-button:active {
-  background-color: #d3d7d7;
-  box-shadow: inset 0 1px rgba(0,0,0,0.12);
+  background-color: #d2d6d6;
+  box-shadow: inset 0 1px rgba(0,0,0,0.1);
 }
 
 .topcoat-icon-button:focus,
@@ -965,8 +1122,6 @@ input[type=&quot;checkbox&quot;]:focus + .topcoat-checkbox__checkmark:before {
 .topcoat-icon-button--large:focus,
 .topcoat-icon-button--large--quiet:focus,
 .topcoat-icon-button--large--quiet:hover:focus {
-  border: 1px solid #0940fd;
-  box-shadow: 0 0 0 2px #6fb5f1;
   outline: 0;
 }
 </code></pre>
@@ -993,22 +1148,28 @@ input[type=&quot;checkbox&quot;]:focus + .topcoat-checkbox__checkmark:before {
   background: transparent;
   border: 1px solid transparent;
   box-shadow: none;
+  border: var-border--icon-button--quiet;
+  color: var-color--icon-button--quiet;
 }
 
 .topcoat-icon-button--quiet:hover,
 .topcoat-icon-button--large--quiet:hover {
   text-shadow: 0 1px #fff;
-  border: 1px solid #a5a8a8;
+  border: 1px solid #9daca9;
+  border: var-border--icon-button--quite--hover;
   box-shadow: inset 0 1px #fff;
 }
 
 .topcoat-icon-button--quiet:active,
 .topcoat-icon-button--large--quiet:active {
   color: #454545;
+  color: var-color--icon-button--quiet--active;
   text-shadow: 0 1px #fff;
-  background-color: #d3d7d7;
-  border: 1px solid #a5a8a8;
-  box-shadow: inset 0 1px rgba(0,0,0,0.12);
+  background-color: #d2d6d6;
+  background-color: var-background-color--icon-button-quiet--down;
+  border: 1px solid #9daca9;
+  border: var-border--icon-button--quite--active;
+  box-shadow: inset 0 1px rgba(0,0,0,0.1);
 }
 </code></pre>
                 </div>
@@ -1038,8 +1199,8 @@ input[type=&quot;checkbox&quot;]:focus + .topcoat-checkbox__checkmark:before {
 }
 
 .topcoat-icon-button--large:active {
-  background-color: #d3d7d7;
-  box-shadow: inset 0 1px rgba(0,0,0,0.12);
+  background-color: #d2d6d6;
+  box-shadow: inset 0 1px rgba(0,0,0,0.1);
 }
 </code></pre>
                 </div>
@@ -1445,9 +1606,76 @@ limitations under the License.
                   <pre class="css"><code data-language="css">
 .topcoat-notification {
   padding: 0.15em 0.5em 0.2em;
+  width: var-notification-width;
+  height: var-notification-height;
   border-radius: 2px;
   background-color: #ec514e;
   color: #fff;
+}
+
+/**
+*
+* Copyright 2012 Adobe Systems Inc.;
+*
+* Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+*/
+
+/**
+*
+* Copyright 2012 Adobe Systems Inc.;
+*
+* Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+*/
+</code></pre>
+                </div>
+              </section>
+            </footer>
+          </article>
+          <article id="page" class="component">
+            <header>
+              <h2>Page</h2>
+            </header>
+            <section class="component"><div class="page"></div></section>
+            <section class="examples">
+              <h4>Examples</h4>
+              <ul>
+                <li><a href="http://codepen.io/Topcoat/pen/piHcs">mobile checkbox</a></li>
+              </ul>
+            </section>
+            <footer>
+              <div class="showcode"><a href="#">Show code snippets</a></div>
+              <section class="code">
+                <div>
+                  <h3>HTML</h3>
+                  <pre class="html"><code data-language="html">&lt;div class=&quot;page&quot;&gt;&lt;/div&gt;</code></pre>
+                </div>
+                <div>
+                  <h3>CSS</h3>
+                  <pre class="css"><code data-language="css">
+.page {
+  background-color: var-background-color--page;
 }
 
 /**
@@ -1695,14 +1923,18 @@ input[type=&quot;radio&quot;]:checked + .topcoat-radio-button__checkmark:after {
 
 .topcoat-radio-button {
   color: #454545;
+  color: var-color--radio-button;
   line-height: 1.063rem;
+  text-align: left;
 }
 
 .topcoat-radio-button__checkmark:before {
   width: 1.063rem;
   height: 1.063rem;
   background: #e5e9e8;
-  border: 1px solid #a5a8a8;
+  background: var-background--radio-button--before;
+  border: 1px solid #9daca9;
+  border: var-border--radio-button--before;
   box-shadow: inset 0 1px #fff;
 }
 
@@ -1716,7 +1948,7 @@ input[type=&quot;radio&quot;]:checked + .topcoat-radio-button__checkmark:after {
   opacity: 0;
   width: 0.313rem;
   height: 0.313rem;
-  background: #666;
+  background: #454545;
   border: 1px solid rgba(0,0,0,0.1);
   box-shadow: 0 1px rgba(255,255,255,0.5);
   -webkit-transform: none;
@@ -1727,8 +1959,22 @@ input[type=&quot;radio&quot;]:checked + .topcoat-radio-button__checkmark:after {
 }
 
 input[type=&quot;radio&quot;]:focus + .topcoat-radio-button__checkmark:before {
-  border: 1px solid #0940fd;
-  box-shadow: 0 0 0 2px #6fb5f1;
+  border: none;
+  box-shadow: inset 0 1px rgba(255,255,255,0.36), none;
+}
+
+input[type=&quot;radio&quot;]:active + .topcoat-radio-button__checkmark:before {
+  border: 1px solid #9daca9;
+  border: var-border--radio-button--active;
+  background-color: #d2d6d6;
+  background-color: var-background-color--down--radio-button;
+  box-shadow: inset 0 1px rgba(0,0,0,0.1);
+}
+
+input[type=&quot;radio&quot;]:disabled:active + .topcoat-radio-button__checkmark:before {
+  border: 1px solid #9daca9;
+  background: #e5e9e8;
+  box-shadow: inset 0 1px #fff;
 }
 
 /*
@@ -1882,18 +2128,19 @@ limitations under the License.
                   <pre class="css"><code data-language="css">
 .topcoat-range {
   border-radius: 4px;
-  border: 1px solid #a5a8a8;
-  border: var-border-none;
-  background-color: #d3d7d7;
+  border: 1px solid #9daca9;
+  border: var-border--range;
+  background-color: #d6dcdb;
   background-color: var-background-color--range;
   height: 0.5rem;
   border-radius: 15px;
+  border-radius: var-border-radius--range;
 }
 
 .topcoat-range::-moz-range-track {
   border-radius: 4px;
-  border: 1px solid #a5a8a8;
-  background-color: #d3d7d7;
+  border: 1px solid #9daca9;
+  background-color: #d6dcdb;
   background-color: var-background-color--range;
   height: 0.5rem;
   border-radius: 15px;
@@ -1905,7 +2152,8 @@ limitations under the License.
   height: 0.75rem;
   width: 0.75rem;
   background-color: #e5e9e8;
-  border: 1px solid #a5a8a8;
+  background-color: var-background-color--range__thumb;
+  border: 1px solid #9daca9;
   border: var-range-border;
   border-radius: 4px;
   border-radius: var-round-border;
@@ -1916,7 +2164,7 @@ limitations under the License.
   height: 1.313rem;
   width: 0.75rem;
   background-color: #e5e9e8;
-  border: 1px solid #a5a8a8;
+  border: 1px solid #9daca9;
   border: var-range-border;
   border-radius: 4px;
   border-radius: var-round-border;
@@ -1924,13 +2172,13 @@ limitations under the License.
 }
 
 .topcoat-range:focus::-webkit-slider-thumb {
-  border: 1px solid #0940fd;
-  box-shadow: 0 0 0 2px #6fb5f1;
+  border: none;
+  box-shadow: none;
 }
 
 .topcoat-range:focus::-moz-range-thumb {
-  border: 1px solid #0940fd;
-  box-shadow: 0 0 0 2px #6fb5f1;
+  border: none;
+  box-shadow: none;
 }
 
 /**
@@ -2083,9 +2331,11 @@ input[type=&quot;search&quot;]::-webkit-search-cancel-button {
   line-height: 1.313rem;
   height: 1.313rem;
   font-size: 12px;
-  border: 1px solid #a5a8a8;
-  background-color: #d3d7d7;
-  box-shadow: var-box-shadow--text-input;
+  border: 1px solid #9daca9;
+  border: var-border--search-input;
+  background-color: #fff;
+  background-color: var-background-color--search-input;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.23);
   color: #454545;
   padding: 0 0 0 1.3rem;
   border-radius: 15px;
@@ -2098,10 +2348,12 @@ input[type=&quot;search&quot;]::-webkit-search-cancel-button {
 
 .topcoat-search-input:focus,
 .topcoat-search-input--large:focus {
-  background-color: #edf1f1;
-  color: #000;
-  border: 1px solid #0940fd;
-  box-shadow: var-box-shadow--text-input, 0 0 0 2px #6fb5f1;
+  background-color: #fff;
+  background-color: var-background-color--search-input--focus;
+  color: #454545;
+  border: none;
+  border: var-border--search-input--focus;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.23), none;
 }
 
 .topcoat-search-input::-webkit-search-cancel-button,
@@ -2117,15 +2369,15 @@ input[type=&quot;search&quot;]::-webkit-search-cancel-button {
 }
 
 .topcoat-search-input:disabled::-webkit-input-placeholder {
-  color: #000;
+  color: #454545;
 }
 
 .topcoat-search-input:disabled::-moz-placeholder {
-  color: #000;
+  color: #454545;
 }
 
 .topcoat-search-input:disabled:-ms-input-placeholder {
-  color: #000;
+  color: #454545;
 }
 </code></pre>
                 </div>
@@ -2160,19 +2412,19 @@ input[type=&quot;search&quot;]::-webkit-search-cancel-button {
 }
 
 .topcoat-search-input--large:disabled {
-  color: #000;
+  color: #454545;
 }
 
 .topcoat-search-input--large:disabled::-webkit-input-placeholder {
-  color: #000;
+  color: #454545;
 }
 
 .topcoat-search-input--large:disabled::-moz-placeholder {
-  color: #000;
+  color: #454545;
 }
 
 .topcoat-search-input--large:disabled:-ms-input-placeholder {
-  color: #000;
+  color: #454545;
 }
 
 /**
@@ -2395,7 +2647,8 @@ input[type=&quot;search&quot;]::-webkit-search-cancel-button {
   padding: 0 0.563rem;
   border-radius: 4px;
   border-radius: var-switch--border-radius;
-  border: 1px solid #a5a8a8;
+  border: 1px solid #9daca9;
+  border: var-border--switch;
   overflow: hidden;
   width: 3.5rem;
 }
@@ -2408,15 +2661,19 @@ input[type=&quot;search&quot;]::-webkit-search-cancel-button {
 
 .topcoat-switch__toggle:before {
   content: 'ON';
-  color: #0083e8;
-  background-color: #e0f0fa;
+  color: #288edf;
+  background-color: #e5f1fb;
   right: 0.8rem;
   padding-left: 0.75rem;
+  height: var-height--switch__label--left;
+  top: var-top--switch__label--left;
+  border-radius: var-border-radius--switch__label--left;
 }
 
 .topcoat-switch__toggle {
   line-height: 1.313rem;
   line-height: var-line-height--switch__toggle;
+  height: 1.313rem;
   height: var-height--switch__toggle;
   width: 1rem;
   border-radius: 4px;
@@ -2424,7 +2681,9 @@ input[type=&quot;search&quot;]::-webkit-search-cancel-button {
   color: #454545;
   text-shadow: 0 1px #fff;
   background-color: #e5e9e8;
-  border: 1px solid #a5a8a8;
+  background-color: var-background-color--switch__toggle;
+  border: 1px solid #9daca9;
+  border: var-border--switch__toggle;
   margin-left: -0.6rem;
   margin-bottom: -1px;
   margin-top: -1px;
@@ -2435,9 +2694,12 @@ input[type=&quot;search&quot;]::-webkit-search-cancel-button {
 
 .topcoat-switch__toggle:after {
   content: 'OFF';
-  background-color: #d3d7d7;
+  background-color: #d2d6d6;
   left: 0.8rem;
   padding-left: 0.6rem;
+  height: var-height--switch__label--right;
+  top: var-top--switch__label--right;
+  border-radius: var-border-radius--switch__label--right;
 }
 
 .topcoat-switch__input:checked + .topcoat-switch__toggle {
@@ -2445,13 +2707,13 @@ input[type=&quot;search&quot;]::-webkit-search-cancel-button {
 }
 
 .topcoat-switch__input:active + .topcoat-switch__toggle {
-  border: 1px solid #a5a8a8;
+  border: 1px solid #9daca9;
   box-shadow: inset 0 1px #fff;
 }
 
 .topcoat-switch__input:focus + .topcoat-switch__toggle {
-  border: 1px solid #0940fd;
-  box-shadow: 0 0 0 2px #6fb5f1;
+  border: none;
+  box-shadow: none;
 }
 
 .topcoat-switch__input:disabled + .topcoat-switch__toggle:after,
@@ -2596,30 +2858,43 @@ input[type=&quot;search&quot;]::-webkit-search-cancel-button {
                 <div>
                   <h3>CSS</h3>
                   <pre class="css"><code data-language="css">
+.topcoat-tab-bar {
+  background-color: var-background-color--tab-bar;
+  border-top: var-border-top--tab-bar;
+}
+
 .topcoat-tab-bar__button {
   padding: 0 0.563rem;
   height: 1.313rem;
+  height: var-line-height--tab-bar__button;
   line-height: 1.313rem;
+  line-height: var-line-height--tab-bar__button;
   letter-spacing: 0;
   color: #454545;
+  color: var-color--tab-bar__button;
   text-shadow: 0 1px #fff;
   vertical-align: top;
   background-color: #e5e9e8;
+  background-color: var-background-color--tab-bar__button;
   box-shadow: inset 0 1px #fff;
-  border-top: 1px solid #a5a8a8;
+  border-top: 1px solid #9daca9;
+  border-top: var-border--tab-bar__button;
 }
 
 .topcoat-tab-bar__button:active,
 .topcoat-tab-bar__button--large:active,
 :checked + .topcoat-tab-bar__button {
-  color: #0083e8;
-  background-color: #e0f0fa;
-  box-shadow: inset 0 0 2px #c0ced8;
+  color: #288edf;
+  background-color: #e5f1fb;
+  box-shadow: inset 0 0 1px rgba(0,0,0,0.1);
 }
 
 .topcoat-tab-bar__button:focus,
 .topcoat-tab-bar__button--large:focus {
   z-index: 1;
+  box-shadow: inset 0 1px rgba(255,255,255,0.36), none;
+  box-shadow: var-box-shadow--tab-bar__button--focus;
+  outline: 0;
 }
 
 /**
@@ -2707,36 +2982,40 @@ input[type=&quot;search&quot;]::-webkit-search-cancel-button {
   font-size: 12px;
   letter-spacing: 0;
   padding: 0 0.563rem;
-  border: 1px solid #a5a8a8;
+  border: 1px solid #9daca9;
+  border: var-border--text-input;
   border-radius: 4px;
-  background-color: #d3d7d7;
-  box-shadow: inset 0 1px rgba(0,0,0,0.12);
+  background-color: #fff;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.23);
   color: #454545;
+  color: var-color--text-input;
   vertical-align: top;
 }
 
 .topcoat-text-input:focus,
 .topcoat-text-input--large:focus {
-  background-color: #edf1f1;
-  color: #000;
-  border: 1px solid #0940fd;
-  box-shadow: 0 0 0 2px #6fb5f1;
+  background-color: #fff;
+  color: #454545;
+  border: none;
+  border: var-border--text-input--focus;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.23), none;
 }
 
 .topcoat-text-input:disabled::-webkit-input-placeholder {
-  color: #000;
+  color: #454545;
 }
 
 .topcoat-text-input:disabled::-moz-placeholder {
-  color: #000;
+  color: #454545;
 }
 
 .topcoat-text-input:disabled:-ms-input-placeholder {
-  color: #000;
+  color: #454545;
 }
 
 .topcoat-text-input:invalid {
-  border: 1px solid #d83b75;
+  border: 1px solid #ec514e;
+  color: var-color-invalid;
 }
 </code></pre>
                 </div>
@@ -2764,23 +3043,24 @@ input[type=&quot;search&quot;]::-webkit-search-cancel-button {
 }
 
 .topcoat-text-input--large:disabled {
-  color: #000;
+  color: #454545;
 }
 
 .topcoat-text-input--large:disabled::-webkit-input-placeholder {
-  color: #000;
+  color: #454545;
 }
 
 .topcoat-text-input--large:disabled::-moz-placeholder {
-  color: #000;
+  color: #454545;
 }
 
 .topcoat-text-input--large:disabled:-ms-input-placeholder {
-  color: #000;
+  color: #454545;
 }
 
 .topcoat-text-input--large:invalid {
-  border: 1px solid #d83b75;
+  border: 1px solid #ec514e;
+  color: var-color-invalid;
 }
 
 /**
@@ -2927,31 +3207,34 @@ input[type=&quot;search&quot;]::-webkit-search-cancel-button {
   font-weight: 400;
   border-radius: 4px;
   line-height: 1.313rem;
-  border: 1px solid #a5a8a8;
-  background-color: #d3d7d7;
-  box-shadow: inset 0 1px rgba(0,0,0,0.12);
+  border: 1px solid #9daca9;
+  border: var-border--textarea;
+  background-color: #fff;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.23);
   color: #454545;
+  color: var-color--textarea;
   letter-spacing: 0;
 }
 
 .topcoat-textarea:focus,
 .topcoat-textarea--large:focus {
-  background-color: #edf1f1;
-  color: #000;
-  border: 1px solid #0940fd;
-  box-shadow: 0 0 0 2px #6fb5f1;
+  background-color: #fff;
+  color: #454545;
+  border: none;
+  border: var-border--focus--textarea;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.23), none;
 }
 
 .topcoat-textarea:disabled::-webkit-input-placeholder {
-  color: #000;
+  color: #454545;
 }
 
 .topcoat-textarea:disabled::-moz-placeholder {
-  color: #000;
+  color: #454545;
 }
 
 .topcoat-textarea:disabled:-ms-input-placeholder {
-  color: #000;
+  color: #454545;
 }
 </code></pre>
                 </div>
@@ -2979,19 +3262,19 @@ input[type=&quot;search&quot;]::-webkit-search-cancel-button {
 }
 
 .topcoat-textarea--large:disabled {
-  color: #000;
+  color: #454545;
 }
 
 .topcoat-textarea--large:disabled::-webkit-input-placeholder {
-  color: #000;
+  color: #454545;
 }
 
 .topcoat-textarea--large:disabled::-moz-placeholder {
-  color: #000;
+  color: #454545;
 }
 
 .topcoat-textarea--large:disabled:-ms-input-placeholder {
-  color: #000;
+  color: #454545;
 }
 
 @font-face {
@@ -3017,7 +3300,7 @@ body {
   background: #dfe2e2;
   color: #000;
   font: 16px &quot;Source Sans&quot;, helvetica, arial, sans-serif;
-  font-weight: 200;
+  font-weight: 400;
 }
 
 :focus {
@@ -3091,7 +3374,17 @@ body {
 
 /* This file should include color and image variables corresponding to the dark theme */
 
-/* Call To Action */
+/* ---------- colors ---------- */
+
+/* ---------- darken ---------- */
+
+/* ---------- lighten ---------- */
+
+/* ---------- alphas ---------- */
+
+/* ---------- thickness ---------- */
+
+/* ---------- shadows ---------- */
 
 /* Icons */
 
@@ -3099,17 +3392,15 @@ body {
 
 /* Text Input */
 
-/* Search Input */
-
 /* List */
-
-/* Checkbox */
 
 /* Overlay */
 
 /* Progress bar */
 
 /* Checkbox */
+
+/* Range input */
 
 /* Radio Button */
 
@@ -3139,7 +3430,23 @@ body {
 
 /* This file should include color and image variables corresponding to the light theme */
 
-/* Call To Action */
+/* ---------- colors ---------- */
+
+/* ---------- darken ---------- */
+
+/* ---------- lighten ---------- */
+
+/* ---------- alphas ---------- */
+
+/* ---------- thickness ---------- */
+
+/* ---------- shadows ---------- */
+
+/* Secondary colors (based on colors above)
+
+Everything below this line should be calculated using the variables above. This area is for people that want to totally customize everything. Have fun, bros!
+
+*/
 
 /* Icons */
 
@@ -3187,36 +3494,15 @@ body {
 
 /* This file should include color and image variables corresponding to the onsen theme */
 
-/* var-button-bar-margin = 
-/* Call To Action */
+/* --------- colors --------- */
 
-/* Icons */
+/* ---------- darken ---------- */
 
-/* Navigation Bar */
+/* ---------- lighten ---------- */
 
-/* Text Input */
+/* ---------- alphas ---------- */
 
-/* List */
-
-/* Overlay */
-
-/* Progress bar */
-
-/* Checkbox */
-
-/* Range input */
-
-/* Radio Button */
-
-/* Tab bar */
-
-/* Switch */
-
-/* Notification */
-
-/* Search-Input */
-
-/* This file should include color and image variables corresponding to the onsen theme */
+/* Page */
 
 /* Call To Action */
 
@@ -3227,6 +3513,8 @@ body {
 /* Navigation Bar */
 
 /* Text Input */
+
+/* Text Area */
 
 /* List */
 
@@ -3248,21 +3536,35 @@ body {
 
 /* Button */
 
+/* Button Quiet*/
+
 /* Notification */
 
 /* Search-Input */
 
-/* Switch */
-
 /* This file should include color and image variables corresponding to the onsen theme */
 
+/* --------- colors --------- */
+
+/* ---------- darken ---------- */
+
+/* ---------- lighten ---------- */
+
+/* ---------- alphas ---------- */
+
+/* Page */
+
 /* Call To Action */
+
+/*Icon-Button*/
 
 /* Icons */
 
 /* Navigation Bar */
 
 /* Text Input */
+
+/* Text Area */
 
 /* List */
 
@@ -3280,7 +3582,247 @@ body {
 
 /* Switch */
 
-/* Icon button */
+/* Bar button */
+
+/* Button */
+
+/* Button Quiet*/
+
+/* Notification */
+
+/* Search-Input */
+
+/* This file should include color and image variables corresponding to the onsen theme */
+
+/* --------- colors --------- */
+
+/* ---------- darken ---------- */
+
+/* ---------- lighten ---------- */
+
+/* ---------- alphas ---------- */
+
+/* Page */
+
+/* Call To Action */
+
+/*Icon-Button*/
+
+/* Icons */
+
+/* Navigation Bar */
+
+/* Text Input */
+
+/* Text Area */
+
+/* List */
+
+/* Overlay */
+
+/* Progress bar */
+
+/* Checkbox */
+
+/* Range input */
+
+/* Radio Button */
+
+/* Tab bar */
+
+/* Switch */
+
+/* Bar button */
+
+/* Button */
+
+/* Button Quiet*/
+
+/* Notification */
+
+/* Search-Input */
+
+/* This file should include color and image variables corresponding to the onsen theme */
+
+/* --------- colors --------- */
+
+/* ---------- darken ---------- */
+
+/* ---------- lighten ---------- */
+
+/* ---------- alphas ---------- */
+
+/* Page */
+
+/* Call To Action */
+
+/*Icon-Button*/
+
+/* Icons */
+
+/* Navigation Bar */
+
+/* Text Input */
+
+/* Text Area */
+
+/* List */
+
+/* Overlay */
+
+/* Progress bar */
+
+/* Checkbox */
+
+/* Range input */
+
+/* Radio Button */
+
+/* Tab bar */
+
+/* Switch */
+
+/* Bar button */
+
+/* Button */
+
+/* Button Quiet*/
+
+/* Notification */
+
+/* Search-Input */
+
+/* This file should include color and image variables corresponding to the onsen theme */
+
+/* --------- colors --------- */
+
+/* ---------- darken ---------- */
+
+/* ---------- lighten ---------- */
+
+/* ---------- alphas ---------- */
+
+/* Page */
+
+/* Call To Action */
+
+/*Icon-Button*/
+
+/* Icons */
+
+/* Navigation Bar */
+
+/* Text Input */
+
+/* Text Area */
+
+/* List */
+
+/* Overlay */
+
+/* Progress bar */
+
+/* Checkbox */
+
+/* Range input */
+
+/* Radio Button */
+
+/* Tab bar */
+
+/* Switch */
+
+/* Bar button */
+
+/* Button */
+
+/* Button Quiet*/
+
+/* Notification */
+
+/* Search-Input */
+
+/* This file should include color and image variables corresponding to the onsen theme */
+
+/* --------- colors --------- */
+
+/* ---------- darken ---------- */
+
+/* ---------- lighten ---------- */
+
+/* ---------- alphas ---------- */
+
+/* Page */
+
+/* Call To Action */
+
+/*Icon-Button*/
+
+/* Icons */
+
+/* Navigation Bar */
+
+/* Text Input */
+
+/* Text Area */
+
+/* List */
+
+/* Overlay */
+
+/* Progress bar */
+
+/* Checkbox */
+
+/* Range input */
+
+/* Radio Button */
+
+/* Tab bar */
+
+/* Switch */
+
+/* Bar button */
+
+/* Button */
+
+/* Button Quiet*/
+
+/* Notification */
+
+/* Search-Input */
+
+/* Containers */
+
+/* Button */
+
+/* Bar Button */
+
+/* Icon Button */
+
+/* Navigation bar */
+
+/* List */
+
+/* Notification */
+
+/* Search Input */
+
+/* Text Area */
+
+/* Checkbox */
+
+/* Radio */
+
+/* Range input */
+
+/* Search Input */
+
+/* Switch */
+
+/* Tab-bar */
+
+/* Call To Action */
 
 /* Text Input */
 
@@ -3294,11 +3836,11 @@ body {
 
 /* Progress bar progress */
 
-/* Search input */
-
 /* Switch */
 
-/* Notification */</code></pre>
+/* Notification */
+
+/* Search */</code></pre>
                 </div>
               </section>
             </footer>

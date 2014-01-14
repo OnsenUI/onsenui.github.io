@@ -58,36 +58,69 @@ module.exports = function(grunt) {
                 }]
             },
 
-            mobileonsenlightblue: {
+            mobile_onsen_blue: {
                 options: {
-                    import: ['theme-topcoat-mobile-onsen-lightblue', 'utils']
+                    import: ['theme-topcoat-mobile-onsen-blue', 'utils']
                 },
 
                 files: [{
                     src: 'node_modules/topcoat-*/src/**/*.styl',
-                    dest: 'css/topcoat-mobile-onsen-lightblue.css'
+                    dest: 'css/topcoat-mobile-onsen-blue.css'
                 }]
             },
 
-            mobileonsenflatlight: {
+            mobile_onsen_orange: {
                 options: {
-                    import: ['theme-topcoat-mobile-onsen-flat-light', 'utils']
+                    import: ['theme-topcoat-mobile-onsen-orange', 'utils']
                 },
 
                 files: [{
                     src: 'node_modules/topcoat-*/src/**/*.styl',
-                    dest: 'css/topcoat-mobile-onsen-flat-light.css'
+                    dest: 'css/topcoat-mobile-onsen-orange.css'
                 }]
             },
 
-            mobileonsenred: {
+            mobile_onsen_green: {
                 options: {
-                    import: ['theme-topcoat-mobile-onsen-red', 'utils']
+                    import: ['theme-topcoat-mobile-onsen-green', 'utils']
                 },
 
                 files: [{
                     src: 'node_modules/topcoat-*/src/**/*.styl',
-                    dest: 'css/topcoat-mobile-onsen-red.css'
+                    dest: 'css/topcoat-mobile-onsen-green.css'
+                }]
+            },
+
+            mobile_onsen_pink: {
+                options: {
+                    import: ['theme-topcoat-mobile-onsen-pink', 'utils']
+                },
+
+                files: [{
+                    src: 'node_modules/topcoat-*/src/**/*.styl',
+                    dest: 'css/topcoat-mobile-onsen-pink.css'
+                }]
+            },
+
+              mobile_onsen_purple: {
+                options: {
+                    import: ['theme-topcoat-mobile-onsen-purple', 'utils']
+                },
+
+                files: [{
+                    src: 'node_modules/topcoat-*/src/**/*.styl',
+                    dest: 'css/topcoat-mobile-onsen-purple.css'
+                }]
+            },
+
+              mobile_onsen_yellow: {
+                options: {
+                    import: ['theme-topcoat-mobile-onsen-yellow', 'utils']
+                },
+
+                files: [{
+                    src: 'node_modules/topcoat-*/src/**/*.styl',
+                    dest: 'css/topcoat-mobile-onsen-yellow.css'
                 }]
             },
 
@@ -180,13 +213,30 @@ module.exports = function(grunt) {
                     dest: 'css/topcoat-mobile-light.css'
                 },
                 {
-                    src: 'css/topcoat-mobile-onsen-lightblue.css',
-                    dest: 'css/topcoat-mobile-onsen-lightblue.css'
+                    src: 'css/topcoat-mobile-onsen-blue.css',
+                    dest: 'css/topcoat-mobile-onsen-blue.css'
                 },
                 {
-                    src: 'css/topcoat-mobile-onsen-red.css',
-                    dest: 'css/topcoat-mobile-onsen-red.css'
-                }]
+                    src: 'css/topcoat-mobile-onsen-orange.css',
+                    dest: 'css/topcoat-mobile-onsen-orange.css'
+                },
+                {
+                    src: 'css/topcoat-mobile-onsen-green.css',
+                    dest: 'css/topcoat-mobile-onsen-green.css'
+                },
+                 {
+                    src: 'css/topcoat-mobile-onsen-pink.css',
+                    dest: 'css/topcoat-mobile-onsen-pink.css'
+                },
+                  {
+                    src: 'css/topcoat-mobile-onsen-purple.css',
+                    dest: 'css/topcoat-mobile-onsen-purple.css'
+                },
+                  {
+                    src: 'css/topcoat-mobile-onsen-yellow.css',
+                    dest: 'css/topcoat-mobile-onsen-yellow.css'
+                }
+                ]
             }
 
         },
