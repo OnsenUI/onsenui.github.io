@@ -1,4 +1,4 @@
-/*! onsenui - v0.7.0 - 2014-02-01 */
+/*! onsenui - v0.7.0 - 2014-02-03 */
 angular.module('templates-main', ['templates/bottom_toolbar.tpl', 'templates/button.tpl', 'templates/checkbox.tpl', 'templates/column.tpl', 'templates/icon.tpl', 'templates/if_orientation.tpl', 'templates/if_platform.tpl', 'templates/list.tpl', 'templates/list_item.tpl', 'templates/navigator.tpl', 'templates/navigator_toolbar.tpl', 'templates/page.tpl', 'templates/radio_button.tpl', 'templates/row.tpl', 'templates/screen.tpl', 'templates/scroller.tpl', 'templates/search_input.tpl', 'templates/select.tpl', 'templates/sliding_menu.tpl', 'templates/split_view.tpl', 'templates/tab_bar.tpl', 'templates/tab_bar_item.tpl', 'templates/text_area.tpl', 'templates/text_input.tpl']);
 
 angular.module("templates/bottom_toolbar.tpl", []).run(["$templateCache", function($templateCache) {
@@ -53,7 +53,7 @@ angular.module("templates/if_platform.tpl", []).run(["$templateCache", function(
 
 angular.module("templates/list.tpl", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("templates/list.tpl",
-    "<div class=\"scroller-wrapper full-screen\" ons-scrollable>\n" +
+    "<div class=\"scroller-wrapper full-screen page\" ons-scrollable>\n" +
     "	<div class=\"scroller\">\n" +
     "		<div class=\"topcoat-list__container\" ng-class=\"theme + '-container'\">\n" +
     "			<ul class=\"topcoat-list\" ng-class=\"theme + '-list'\" ng-transclude>\n" +
@@ -88,7 +88,7 @@ angular.module("templates/navigator.tpl", []).run(["$templateCache", function($t
     "			</div>\n" +
     "		</div>	\n" +
     "	</div>\n" +
-    "	<div class=\"relative navigator-content\">\n" +
+    "	<div class=\"relative navigator-content topcoat-page__bg\">\n" +
     "		\n" +
     "	</div>    \n" +
     "	\n" +
@@ -128,7 +128,7 @@ angular.module("templates/screen.tpl", []).run(["$templateCache", function($temp
 
 angular.module("templates/scroller.tpl", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("templates/scroller.tpl",
-    "<div class=\"scroller-wrapper full-screen\" ons-scrollable>\n" +
+    "<div class=\"scroller-wrapper full-screen page\" ons-scrollable>\n" +
     "	<div class=\"scroller\">\n" +
     "		<div ng-transclude>\n" +
     "			\n" +
@@ -153,7 +153,7 @@ angular.module("templates/sliding_menu.tpl", []).run(["$templateCache", function
     "<div class=\"sliding-menu full-screen\">\n" +
     "	<div ng-cloak class=\"onsen_sliding-menu-black-mask\"></div>\n" +
     "	<div class=\"behind full-screen\">\n" +
-    "		<ng-include class=\"full-screen\" ng-cloak src=\"pages.behind\">\n" +
+    "		<ng-include class=\"full-screen\" class=\"page\" ng-cloak src=\"pages.behind\">\n" +
     "		</ng-include>\n" +
     "	</div>\n" +
     "\n" +
@@ -167,7 +167,7 @@ angular.module("templates/split_view.tpl", []).run(["$templateCache", function($
     "<div class=\"sliding-menu full-screen\">\n" +
     "	<div class=\"onsen_sliding-menu-black-mask\"></div>\n" +
     "	<div class=\"secondary full-screen\">\n" +
-    "		<ng-include ng-cloak src=\"pages.behind\">\n" +
+    "		<ng-include ng-cloak src=\"pages.behind\" class=\"page\">\n" +
     "		</ng-include>\n" +
     "	</div>\n" +
     "\n" +
@@ -768,7 +768,11 @@ limitations under the License.
 					init: function() {
 						this.setReady(true);
 						this.attachMethods();
-						leftSection.bind('click', this.onLeftButtonClicked.bind(this));
+
+						leftButtonContainer.bind('touchend', function(){   // fix android 2.3 click event not fired some times when used with sliding menu
+						});
+
+						leftButtonContainer.bind('click', this.onLeftButtonClicked.bind(this));
 						this.attachFastClickEvent(leftSection[0]);
 						rightSection.bind('click', this.onRightButtonClicked.bind(this));
 						this.attachFastClickEvent(rightSection[0]);
@@ -1130,7 +1134,7 @@ limitations under the License.
 								blackMask.addClass('onsen_navigator-black-mask');
 								page.append(blackMask);
 
-								var templateHTML = angular.element(data);
+								var templateHTML = angular.element(data.trim());
 
 								var navigatorToolbar = templateHTML[0].querySelector('ons-navigator-toolbar');
 								if (navigatorToolbar) {
@@ -1577,7 +1581,7 @@ limitations under the License.
 								pageContainer.addClass('screen-page__container');
 								page.append(pageContainer);
 
-								var templateHTML = angular.element(data);
+								var templateHTML = angular.element(data.trim());
 								pageContainer.append(templateHTML);
 								var pager = $compile(page)(scope);
 								element.append(pager);
@@ -1897,7 +1901,7 @@ limitations under the License.
 								}).error(function(e){
 									console.error(e);
 								}).success(function(data, status, headers, config) {
-									var templateHTML = angular.element(data);
+									var templateHTML = angular.element(data.trim());
 									var page = angular.element('<div></div>');
 									page.addClass('page');
 									page[0].style.opacity = 0;
@@ -2149,7 +2153,7 @@ limitations under the License.
 								}).error(function(e){
 									console.error(e);
 								}).success(function(data, status, headers, config) {
-									var templateHTML = angular.element(data);
+									var templateHTML = angular.element(data.trim());
 									var page = angular.element('<div></div>');
 									page.addClass('page');
 									page[0].style.opacity = 0;
@@ -6278,12 +6282,6 @@ Modernizr.load=function(){yepnope.apply(window,[].slice.call(arguments,0));};
 		Modernizr.addTest(
 			'overflowtouch',
 			window.getComputedStyle && window.getComputedStyle(elem).getPropertyValue('-webkit-overflow-scrolling') == 'touch');
-	});
-
-	yepnope({
-		test: Modernizr.overflowtouch,
-		// nope: ['lib/onsen/css/polyfill/sliding_menu_polyfill.css']
-		nope: ['plugins/onsenui/0.6.0/css/polyfill/sliding_menu_polyfill.css']
 	});
 
 })();
