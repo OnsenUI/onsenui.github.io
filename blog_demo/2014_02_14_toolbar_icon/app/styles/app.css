@@ -1,0 +1,12 @@
+.my-icon {
+  background-image: url(../icons/heart.png);
+  width: 35px;
+  height: 70%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 6px;   
+}
+
+.my-icon:active {
+  background-image: url(../icons/heart_active.png);
+}
