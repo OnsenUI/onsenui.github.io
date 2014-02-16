@@ -1475,7 +1475,8 @@ angular.forEach(HGESTURES, function(eventName, directiveName) {
                         var fn = $parse(value);
                         var opts = $parse(attr[directiveName + 'Opts'])
                         (scope, {});
-                        hammertime = new Hammer(element[0], opts);
+                        // hammertime = new Hammer(element[0], opts);
+                        hammertime = new Hammer(element[0], { prevent_default: true});
                         handler = function(event) {
                             if (VERBOSE) {
                                 $log.log('angular-gestures: %s',

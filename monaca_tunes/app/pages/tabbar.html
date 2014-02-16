@@ -1,20 +1,19 @@
-<div class="page ios7" ng-controller="TabbarController" style="background-image: url({{bg}}); background-position: center; background-size: cover;">
-	<ons-tabbar>
+<ons-tabbar>
 
-		<ons-tabbar-item active="true" page="pages/featured/navigator.html">
-			<i class="tabbar-item round fa fa-star"></i>
-			<div class="tabbar-item-label">Trending</div>
-		</ons-tabbar-item>
+	<ons-tabbar-item 
+			icon="fa fa-star"
+			label="Trending"
+			active="true" 
+			page="pages/featured/navigator.html"></ons-tabbar-item>
 
-		<ons-tabbar-item page="pages/favorites/navigator.html">
-			<i class="tabbar-item round fa fa-heart"></i>
-			<div class="tabbar-item-label">Favorites</div>
-		</ons-tabbar-item>
+	<ons-tabbar-item 
+			icon="fa fa-heart"
+			label="Favorites"
+			page="pages/favorites/navigator.html"></ons-tabbar-item>
 
-		<ons-tabbar-item page="pages/settings/setting.html">
-			<i class="tabbar-item round fa fa-gear"></i>
-			<div class="tabbar-item-label">Settings</div>
-		</ons-tabbar-item>
-		
-	</ons-tabbar>
-</div>
+	<ons-tabbar-item 
+			icon="fa fa-gear"
+			label="Settings"
+			page="pages/settings/setting.html"></ons-tabbar-item>
+
+</ons-tabbar>

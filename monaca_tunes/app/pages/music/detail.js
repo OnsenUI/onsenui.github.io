@@ -6,31 +6,53 @@ Play Music
 
     var app = angular.module('myApp');
 
-    app.controller('musicPlayController', ['$scope', '$rootScope', 'PlaylistManager', 'Player', 'Orchestrator',
-        function($scope, $rootScope, PlaylistManager, Player, Orchestrator) {
+    app.controller('musicPlayController', ['$scope', '$rootScope', 'PlaylistManager', 'PlayerFactory', 'Orchestrator', '$timeout',
+        function($scope, $rootScope, PlaylistManager, PlayerFactory, Orchestrator, $timeout) {
 
-            function init(){
-                $scope.volume = 50;
-                $scope.player = Player;
+            var favoriteList = PlaylistManager.getPlaylist('Favorites');
+
+            function init(){                
+                $scope.volume = 50;                
+                $scope.player = PlayerFactory.getPlayer();
                 $scope.playlist = PlaylistManager.selectedPlaylist;
+                                
+                if($scope.playlist.currentTrack){
+                    if($scope.player.status != $scope.player.MEDIA_RUNNING || Orchestrator.currentTrack.id != $scope.playlist.currentTrack.id){
+                        Orchestrator.play();
+                    }else{
+                        setBackgroundImage();
+                    }                 
+                    checkFavorite();
+                }else{
+                    $scope.playlist.goToNextTrack();
+                    setBackgroundImage();
+                }                       
+            }
 
-                var favoriteList = PlaylistManager.getPlaylist('Favorites');
+            function setBackgroundImage(){
+                $timeout(function() {                   
+                     $scope.bg = $scope.playlist.currentTrack.album_image.replace('200.jpg', '600.jpg');                    
+                 }, 1000);
+            }
+
+            $scope.$on('play:music', function(event, music) {                
+                 setBackgroundImage();
+            });
+
+            function checkFavorite(){
                 favoriteList.exist($scope.playlist.currentTrack).done(function(favorited){
                     $scope.$apply(function(){
                         $scope.isFavorited = favorited;
                     });
                 });
-
-                Orchestrator.play();
             }
 
             init();
             
-            $scope.ons.tabbar.setTabbarVisibility(false);
 
             $scope.$on('$destroy', function() {
                 $rootScope.$broadcast('exit-detail');
-                $scope.ons.tabbar.setTabbarVisibility(true);
+                $scope.bg = '';
             });
 
 
@@ -48,29 +70,31 @@ Play Music
 
             $scope.playOrPause = function() {
                 console.log('play or pause');
-                if (Player.status === Player.MEDIA_STARTING || Player.status === Player.MEDIA_RUNNING) {
-                    Player.pause();
+                if ($scope.player.status === $scope.player.MEDIA_STARTING || $scope.player.status === $scope.player.MEDIA_RUNNING) {
+                    $scope.player.pause();
                 } else {
                     Orchestrator.play();
                     setTimeout(function() {
-                        Player.setVolume($scope.volume);
+                        $scope.player.setVolume($scope.volume);
                     }, 0);
                 }
             };
 
             $scope.next = function(){
                 Orchestrator.playNext();
+                checkFavorite();
             };
 
             $scope.previous = function(){
                 Orchestrator.playPrevious();
+                checkFavorite();
             };
 
             $scope.dragDown = function() {
                 if ($scope.volume > 0) {
                     $scope.volume--;
                     setTimeout(function() {
-                        Player.setVolume($scope.volume);
+                        $scope.player.setVolume($scope.volume);
                     }, 0);
 
                 }
@@ -80,7 +104,7 @@ Play Music
                 if ($scope.volume < 100) {
                     $scope.volume++;
                     setTimeout(function() {
-                        Player.setVolume($scope.volume);
+                        $scope.player.setVolume($scope.volume);
                     }, 0);
                 }
             };

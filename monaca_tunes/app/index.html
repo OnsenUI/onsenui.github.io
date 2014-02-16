@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>My App</title>    
-  <link rel="stylesheet" href="lib/onsen/css/onsen_ui.css">  
+  <link rel="stylesheet" href="lib/onsen/css/onsenui.css">  
   <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
-  <link rel="stylesheet" href="lib/onsen/css/topcoat-mobile-dark.css">  
+  <link rel="stylesheet" href="lib/onsen/css/topcoat-mobile-onsen-android4_4.css">  
   <link rel="stylesheet" href="styles/app.css"/>
   <link rel="stylesheet" href="styles/animation.css"/>
   <link rel="stylesheet" href="js/directives/circular_progress/circular_progress.css"/>
@@ -14,7 +14,9 @@
 
   <script>
     function onDeviceReady() {
-        if (parseFloat(window.device.version) === 7.0) {
+        navigator.splashscreen.hide()
+
+        if (window.device.version && parseFloat(window.device.version) === 7.0) {
             window.ios7 = true;
 
             yepnope({
@@ -37,10 +39,11 @@
   
   <script src="lib/class.js"></script>  
   <script src="lib/jquery.js"></script>  
-  <script src="lib/cordova.js"></script>
+  <script src="cordova.js"></script>
   <script src="lib/dancer.js"></script>
   <script src="lib/dancer.fft.js"></script>
-  <script src="lib/onsen/onsen_ui.js"></script>    
+  <script src="lib/onsen/js/onsenui_all.js"></script>    
+  <script src="lib/onsen/js/angular/angular-animate.js"></script>    
 
   <script src="js/app.js"></script>  
   <script src="lib/angular_gestures.js"></script>  
@@ -53,16 +56,19 @@
   <script src="js/services/utils/local_storage_array.js"></script>
   <script src="js/services/playlist/playlist_manager.js"></script>
   <script src="js/services/playlist/base.js"></script>
-  <script src="js/services/playlist/featured.js"></script>
+ <script src="js/services/playlist/featured.js"></script>
+  <!-- // <script src="js/services/playlist/featured_memory.js"></script> -->
   <script src="js/services/playlist/localstorage.js"></script>
   <script src="js/services/orchestrator.js"></script>
+  <script src="js/services/audio/offline_cordova_media_player.js"></script>
+   <!-- <script src="js/services/audio/cordova_media_player.js"></script> -->
+  <script src="js/services/audio/html5_audio_player.js"></script>
   <script src="js/html5_audio_player_service.js"></script>  
 
   <script src="js/directives/my_directives.js"></script>        
   <script src="js/directives/circular_progress/circular-progress.js"></script>      
   <script src="js/directives/progress/progress.js"></script>      
    <script src="js/directives/skew_progress/progress.js"></script>      
-  <script src="pages/tabbar.js"></script>  
   <script src="pages/featured/featured_navigator.js"></script>  
   <script src="pages/favorites/favorites_navigator.js"></script>   
   <script src="pages/music/list.js"></script>  

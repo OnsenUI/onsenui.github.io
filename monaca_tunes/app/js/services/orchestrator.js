@@ -1,7 +1,7 @@
 (function() {
 	var myApp = angular.module('myApp');
 
-	myApp.factory('Orchestrator', function(PlaylistManager, $rootScope, Player) {
+	myApp.factory('Orchestrator', function(PlaylistManager, $rootScope, PlayerFactory) {
 
 		var Orchestrator = Class.extend({
 			init: function() {
@@ -13,22 +13,23 @@
 			},
 
 			playNext: function(){
-				PlaylistManager.selectedPlaylist.getNextTrack();
+				PlaylistManager.selectedPlaylist.goToNextTrack();
 				this.play();
 			},
 
 			playPrevious: function(){
-				PlaylistManager.selectedPlaylist.getPreviousTrack();
+				PlaylistManager.selectedPlaylist.goToPreviousTrack();
 				this.play();
 			},
 
 			play: function() {
+				this.currentTrack = PlaylistManager.selectedPlaylist.currentTrack;
 				$rootScope.$broadcast('play:music', PlaylistManager.selectedPlaylist.currentTrack);
-				Player.play(PlaylistManager.selectedPlaylist.currentTrack.audio);
+				PlayerFactory.getPlayer().play(this.currentTrack.audio);
 			},
 
 			pause: function(){
-				Player.pause();
+				PlayerFactory.getPlayer().pause();
 			}
 
 		});

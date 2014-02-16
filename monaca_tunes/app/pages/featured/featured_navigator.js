@@ -7,12 +7,7 @@
 			var selectedPlaylist = PlaylistManager.getPlaylist('Featured');
 			PlaylistManager.selectedPlaylist = selectedPlaylist;			
 
-			$scope.title = "Featured";
-
-			$rootScope.$on('music-detail', function(selectedMusic){
-				console.log('play');
-				$scope.title = "Playing";				
-			});
+			$scope.title = "Featured";			
 		}		
 
 	]);

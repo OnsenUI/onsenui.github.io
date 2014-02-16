@@ -3,7 +3,7 @@
 
 	myApp.factory('BasePlaylist', function(LocalStorageArrayUtil, $timeout, $rootScope, SettingService) {
 
-		var BasePlaylist = Class.extend({
+		var BasePlaylist = Class.extend({			
 			init: function() {
 				var that = this;
 
@@ -48,6 +48,7 @@
 			},
 
 			resetData: function() {
+				this.currentTrackIndex = -1;
 				this.tracks = [];
 				this.currentTrack = null;
 				this.currentPage = 0;
@@ -61,7 +62,7 @@
 				this.calculateCurrentTrackIndex();
 			},
 
-			getNextTrack: function() {
+			goToNextTrack: function() {
 				if (this.repeat) {
 					return this.currentTrack;
 				}
@@ -84,7 +85,7 @@
 				return random;
 			},
 
-			getPreviousTrack: function() {
+			goToPreviousTrack: function() {
 				if (this.repeat) {
 					return this.currentTrack;
 				}

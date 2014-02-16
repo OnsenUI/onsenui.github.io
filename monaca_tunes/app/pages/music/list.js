@@ -27,7 +27,7 @@ Musiclist
 				var selectedMusic = music;				
 				PlaylistManager.selectedPlaylist.setCurrentTrack(music);
 				PlaylistManager.selectedMusic = selectedMusic;								
-				$scope.ons.navigator.pushPage('pages/music/detail.html', 'Play');
+				$scope.ons.navigator.pushPage('pages/music/detail.html', { title: 'Now Playing'});
 			}			
 
 		}
