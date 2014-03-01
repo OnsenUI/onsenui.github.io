@@ -58,6 +58,28 @@ module.exports = function(grunt) {
                 }]
             },
 
+            mobile_onsen_ios7: {
+                options: {
+                    import: ['theme-topcoat-mobile-onsen-ios7', 'utils']
+                },
+
+                files: [{
+                    src: 'node_modules/topcoat-*/src/**/*.styl',
+                    dest: 'css/topcoat-mobile-onsen-ios7.css'
+                }]
+            },
+
+            mobile_onsen_android4_4: {
+                options: {
+                    import: ['theme-topcoat-mobile-onsen-android4_4', 'utils']
+                },
+
+                files: [{
+                    src: 'node_modules/topcoat-*/src/**/*.styl',
+                    dest: 'css/topcoat-mobile-onsen-android4_4.css'
+                }]
+            },
+
             mobile_onsen_blue: {
                 options: {
                     import: ['theme-topcoat-mobile-onsen-blue', 'utils']
@@ -102,7 +124,7 @@ module.exports = function(grunt) {
                 }]
             },
 
-              mobile_onsen_purple: {
+            mobile_onsen_purple: {
                 options: {
                     import: ['theme-topcoat-mobile-onsen-purple', 'utils']
                 },
@@ -113,7 +135,7 @@ module.exports = function(grunt) {
                 }]
             },
 
-              mobile_onsen_yellow: {
+            mobile_onsen_yellow: {
                 options: {
                     import: ['theme-topcoat-mobile-onsen-yellow', 'utils']
                 },
@@ -124,34 +146,34 @@ module.exports = function(grunt) {
                 }]
             },
 
-            desktoplight: {
-                options: {
-                    import: ['theme-topcoat-desktop-light', 'utils']
-                },
-                files: [{
-                    src: [
-                        'node_modules/topcoat-*/src/**/*.styl',
-                        '!node_modules/topcoat-navigation-bar/src/*.styl',
-                        '!node_modules/topcoat-list/src/*.styl'
-                        ],
-                    dest: 'css/topcoat-desktop-light.css'
-                }]
-            },
+            // desktoplight: {
+            //     options: {
+            //         import: ['theme-topcoat-desktop-light', 'utils']
+            //     },
+            //     files: [{
+            //         src: [
+            //             'node_modules/topcoat-*/src/**/*.styl',
+            //             '!node_modules/topcoat-navigation-bar/src/*.styl',
+            //             '!node_modules/topcoat-list/src/*.styl'
+            //             ],
+            //         dest: 'css/topcoat-desktop-light.css'
+            //     }]
+            // },
 
-            desktopdark: {
-                options: {
-                    import: ['theme-topcoat-desktop-dark', 'utils']
-                },
+            // desktopdark: {
+            //     options: {
+            //         import: ['theme-topcoat-desktop-dark', 'utils']
+            //     },
 
-                files: [{
-                    src: [
-                        'node_modules/topcoat-*/src/**/*.styl',
-                        '!node_modules/topcoat-navigation-bar/src/*.styl',
-                        '!node_modules/topcoat-list/src/*.styl'
-                        ],
-                    dest: 'css/topcoat-desktop-dark.css'
-                }]
-            }
+            //     files: [{
+            //         src: [
+            //             'node_modules/topcoat-*/src/**/*.styl',
+            //             '!node_modules/topcoat-navigation-bar/src/*.styl',
+            //             '!node_modules/topcoat-list/src/*.styl'
+            //             ],
+            //         dest: 'css/topcoat-desktop-dark.css'
+            //     }]
+            // }
         },
 
         topdoc: {
@@ -235,8 +257,15 @@ module.exports = function(grunt) {
                   {
                     src: 'css/topcoat-mobile-onsen-yellow.css',
                     dest: 'css/topcoat-mobile-onsen-yellow.css'
-                }
-                ]
+                },
+                  {
+                    src: 'css/topcoat-mobile-onsen-ios7.css',
+                    dest: 'css/topcoat-mobile-onsen-ios7.css'
+                },
+                  {
+                    src: 'css/topcoat-mobile-onsen-android4_4.css',
+                    dest: 'css/topcoat-mobile-onsen-android4_4.css'
+                }]
             }
 
         },

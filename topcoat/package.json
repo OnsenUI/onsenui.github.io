@@ -36,7 +36,7 @@
     "topcoat-switch-base": "~0.1.0",
     "topcoat-range-base": "0.0.3",
     "topcoat-range": "~0.1.0",
-    "onsen-page": "~0.1.0"
+    "topcoat-page": "~0.1.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
