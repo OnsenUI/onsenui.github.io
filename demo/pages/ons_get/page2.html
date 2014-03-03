@@ -6,23 +6,27 @@
 		}
 	</style>
 
-	<h4>Page 2</h4>
+	<ons-scroller>
 
-	<h3>Navigator 1</h3>
-	<ons-button 
-		ng-click="ons.$get('#navigator1').popPage()">
-		Pop
-	</ons-button>
+		<h4>Page 2</h4>
 
-	<h3>Navigator 2</h3>
-	<ons-button 
-		ng-click="ons.$get('#navigator2').popPage()">
-		Pop
-	</ons-button>
+		<h3>Navigator 1</h3>
+		<ons-button 
+			ng-click="ons.$get('#navigator1').popPage()">
+			Pop
+		</ons-button>
 
-	<h3>Using $event</h3>
-	<ons-button 
-		ng-click="ons.navigator.popPage($event)">
-		Pop Page
-	</ons-button>
+		<h3>Navigator 2</h3>
+		<ons-button 
+			ng-click="ons.$get('#navigator2').popPage()">
+			Pop
+		</ons-button>
+
+		<h3>Using $event</h3>
+		<ons-button 
+			ng-click="ons.navigator.popPage($event)">
+			Pop Page
+		</ons-button>	
+
+	</ons-scroller>
 </ons-page>
