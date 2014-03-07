@@ -1,0 +1,21 @@
+<div class="page center" ng-controller="LoginController">
+	<div class="row">
+		<div class="col">
+			<ons-text-input placeholder="id" ng-model="id">				
+			</ons-text-input>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<input type="password" placeholder="password" ng-model="password" class="topcoat-text-input">
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<ons-button ng-click="login(id, password)">
+				Login
+			</ons-button>
+		</div>
+	</div>
+</div>
