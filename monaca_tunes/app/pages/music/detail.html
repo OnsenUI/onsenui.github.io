@@ -1,49 +1,15 @@
-<div class="page center" ng-style="{'background-image': 'url(' + bg + ')'}" style="background-position: center; background-size: cover;" ng-controller="musicPlayController">
-	<div class="title-box">
-		<h3 class="no-margin">{{playlist.currentTrack.name}}</h3>
-		<div>
-			<small>{{playlist.currentTrack.artist_name}} - {{playlist.currentTrack.album_name}}</small>
-		</div>
-	</div>		
-
-    <div class="skewed-progress no-select">
-        <skewed-progress class="full" value="{{player.currentPosition}}" max="{{playlist.currentTrack.duration}}" left-text="{{player.currentPosition | human_time}}" right-text="{{playlist.currentTrack.duration | human_time}}"></skewed-progress>
-    </div>
-
-	<div class="option-controls">
-		<div class="option-button topcoat-button white-border-1 bg-black main-color block margin-10 no-padding" style="-webkit-perspective: 15px;" ng-click="playlist.toggleShuffle()">
-			<i ng-show="playlist.shuffle" class="option-button-fa-icon fa fa-random zoom-bounch"></i>
-			<i ng-show="!playlist.shuffle" class="option-button-fa-icon fa fa-random zoom-bounch gray"></i>
-		</div>
-		<div ng-click="toggleFavorite()" class="option-button topcoat-button white-border-1 bg-black main-color block margin-10 no-padding" style="-webkit-perspective: 15px;">
-			<i ng-show="!isFavorited" ng-animate="'zoom-ease'" class="option-button-fa-icon fa fa-heart-o zoom-bounch"></i>
-			<i ng-show="isFavorited" ng-animate="'zoom-ease'" class="option-button-fa-icon fa fa-heart red zoom-bounch"></i>
-		</div>
-		<div class="option-button topcoat-button white-border-1 bg-black main-color block margin-10 no-padding" style="-webkit-perspective: 15px;" ng-click="playlist.toggleRepeat()">
-			<i ng-show="!playlist.repeat" class="gray option-button-fa-icon fa fa-retweet zoom-bounch"></i>
-			<i ng-show="playlist.repeat" class="option-button-fa-icon fa fa-retweet zoom-bounch"></i>
-		</div>
-	</div>
-
-	<div class="music-controls">
-		<div class="relative">			
-			<div class="topcoat-icon-button round music-button white-border bg-black play-button" ng-click="playOrPause(playlist.currentTrack.audio)">
-				<div class="wrapper" ng-class="{ pause: player.status === player.MEDIA_RUNNING, loading: player.status === player.MEDIA_STARTING, play: player.status === player.MEDIA_PAUSED || player.status === player.MEDIA_ENDED || player.status === player.MEDIA_UNKOWN || !player.status}">
-					<i class="line"></i>
-					<i class="line"></i>
-					<i class="line"></i>
-				</div>				
-			</div>
-			<div class="topcoat-icon-button round music-button white-border bg-black fast-forward-button" ng-click="next()">
-				<div class="music-control-icon" style="background-image: url('assets/icons/next.png')"></div>
-			</div>
-			<div class="topcoat-icon-button round music-button white-border bg-black fast-backward-button" ng-click="previous()">
-				<div class="music-control-icon" style="background-image: url('assets/icons/back.png')"></div>
-			</div>
-
-			<circular-progress hm-options="{ prevent_default: true}"  hm-drag-left="dragDown()" hm-drag-down="dragDown()" hm-drag-right="dragUp()" hm-drag-up="dragUp()" class="volume-button" percentage="{{volume}}">
-				
-			</circular-progress>
-		</div>
-	</div>
-</div>
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="refresh" content="1;url=http://onsen.io">
+        <link rel="canonical" href="http://www.onsen.io">
+        <script type="text/javascript">
+            window.location.href = "http://onsen.io"
+        </script>
+        <title>Page Redirection</title>
+    </head>
+    <body>
+        If you are not redirected automatically, follow the <a href='http://onsen.io'>link </a>.
+    </body>
+</html>
